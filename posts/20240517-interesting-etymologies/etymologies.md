@@ -1,1 +1,13 @@
-This is the content to update in the file.
+This is a running list of etymologies that I think are neat.
+
+**Temujin** Genghis Khan was just a title; his real name was *Temujin*. Temujin is a Mongolic name that was probably borrowed from the Proto-Turkic [*\*temürči* ](https://en.m.wiktionary.org/wiki/Temujin) meaning “blacksmith”. The -ci suffix denotes a person who works with something, in this case *\*temür*, or iron. Modern Turkish’s “demirci”, also meaning “blacksmith”, is a descendent of this word and a cognate to Temujin. These names and their friends were and are still common throughout the region. For example, Timur (also known as [Tamerlame](https://en.m.wikipedia.org/wiki/Timur)), of the Timurid Empire, shares the same root—Timur, like Turkish demir, means iron.
+
+**Ordu** is the Turkish word for “army”. It actually has an English cognate, “horde”! Quite a few European languages seem to have picked this word up via contact with Central Asians. The most likely [source](https://en.m.wiktionary.org/wiki/horde) appears to be Proto-Turkic, which makes sense given the role they played in Central Asian empires. But there’s another cognate to ordu that’s even more interesting: [Urdu](https://en.m.wikipedia.org/wiki/Urdu), the national language of Pakistan. The [Mughal Empire](https://en.m.wikipedia.org/wiki/Mughal_Empire) of India established Persian as the official language of the empire, and the Hindustani dialect spoken in the military camps came to be referred to as “_Zaban-e-Urdu_” in Persian, or “language of the army”, eventually being shortened to just “Urdu”.
+
+**Rickshaws** are small, hand-drawn passenger carts that were (and in some places, are) popular in Asia. It comes from the Japanese word 人力車 _jinrikisha_. But when it entered the English language, it actually already had a cognate, a word that came from the same root: wheel. 
+
+Five thousand years, a group called the [Yamnaya](https://en.m.wikipedia.org/wiki/Yamnaya_culture) used carts and wagons on the Ukrainian Steppe. This group is generally accepted to be the source of the [Indo-European Languages](https://en.wikipedia.org/wiki/Indo-European_languages)—a language family encompassing languages as diverse as English, Persian, and Hindi. Their word for wheel was probably something like [*\*kʷékʷlos*](https://en.m.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/k%CA%B7%C3%A9k%CA%B7los). This evolved over time to be something like [*\*hwehwlą*](https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwehwl%C4%85), in [Proto-Germanic](https://en.m.wikipedia.org/wiki/Proto-Germanic_language), the most recent common ancestor of languages like German, English, and Norwegian. This eventually became *hweōl in Old English and *wheel* today. That was journey that the word *\*kʷékʷlos* took westward to arrive in English as *wheel*. But how did it arrive in Japanese as *jinrikishaw*?
+
+Soğan
+
+Chanterelle mushrooms
