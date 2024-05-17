@@ -8,6 +8,7 @@ This is a running list of etymologies that I think are neat. Keep in mind that n
 
 Five thousand years, a group called the [Yamnaya](https://en.m.wikipedia.org/wiki/Yamnaya_culture) used carts and wagons on the Ukrainian Steppe. This group is generally accepted to be the source of the [Indo-European Languages](https://en.wikipedia.org/wiki/Indo-European_languages)—a language family encompassing languages as diverse as English, Persian, and Hindi. Their word for wheel was probably something like [*\*kʷékʷlos*](https://en.m.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/k%CA%B7%C3%A9k%CA%B7los). This evolved over time to be something like [*\*hwehwlą*](https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwehwl%C4%85), in [Proto-Germanic](https://en.m.wikipedia.org/wiki/Proto-Germanic_language), the most recent common ancestor of languages like German, English, and Norwegian. This eventually became *hweōl in Old English and *wheel* today. That was journey that the word *\*kʷékʷlos* took westward to arrive in English as *wheel*. But how did it arrive in Japanese as *jinrikishaw*?
 
+
 Soğan
 
 Chanterelle mushrooms
