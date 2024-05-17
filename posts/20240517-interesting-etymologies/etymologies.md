@@ -1,4 +1,4 @@
-This is a running list of etymologies that I think are neat.
+This is a running list of etymologies that I think are neat. Keep in mind that not everything I’m presenting here have universal acceptance.
 
 **Temujin** Genghis Khan was just a title; his real name was *Temujin*. Temujin is a Mongolic name that was probably borrowed from the Proto-Turkic [*\*temürči* ](https://en.m.wiktionary.org/wiki/Temujin) meaning “blacksmith”. The -ci suffix denotes a person who works with something, in this case *\*temür*, or iron. Modern Turkish’s “demirci”, also meaning “blacksmith”, is a descendent of this word and a cognate to Temujin. These names and their friends were and are still common throughout the region. For example, Timur (also known as [Tamerlame](https://en.m.wikipedia.org/wiki/Timur)), of the Timurid Empire, shares the same root—Timur, like Turkish demir, means iron.
 
