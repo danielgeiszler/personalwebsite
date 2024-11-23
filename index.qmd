@@ -1,5 +1,5 @@
 ---
-title: "Daniel Geiszler"
+pagetitle: "Daniel Geiszler"
 image: profile.jpg
 about:
   template: jolla
@@ -19,6 +19,6 @@ about:
 
 ---
 
-#Hi, I'm Danny 🧬
+# Hi, I'm Danny 🧬
 
 a Bioinformatics PhD doing computational proteomics
