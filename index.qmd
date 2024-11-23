@@ -6,13 +6,13 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://x.com/GeiszlerDaniel
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/daniel-geiszler-868077a6/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/danielgeiszler/
 
 ---
 a Bioinformatics PhD doing computational proteomics
