@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Daniel Geiszler"
+  favicon: favicon.png
   description: "This is Danny's personal blog."
   navbar:
     right:
