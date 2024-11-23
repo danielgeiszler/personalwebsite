@@ -13,6 +13,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com/danielgeiszler/
+    - icon: mortarboard-fill
+      text: Scholar
+      href: https://scholar.google.com/citations?user=R-QRYkgAAAAJ&hl=en
 
 ---
 a Bioinformatics PhD doing computational proteomics
