@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Hi, I’m Danny 🧬",
     "section": "",
-    "text": "a Bioinformatics PhD doing computational proteomics"
+    "text": "Hi, I’m Danny 🧬\na Bioinformatics PhD doing computational proteomics"
   },
   {
     "objectID": "blog.html",
@@ -32,7 +32,7 @@
     "href": "posts/20240517-interesting-etymologies/etymologies.html",
     "title": "Daniel Geiszler",
     "section": "",
-    "text": "This is a running list of etymologies that I think are neat.\nTemujin Genghis Khan was just a title; his real name was Temujin. Temujin is a Mongolic name that was probably borrowed from the Proto-Turkic *temürči meaning “blacksmith”. The -ci suffix denotes a person who works with something, in this case *temür, or iron. Modern Turkish’s “demirci”, also meaning “blacksmith”, is a descendent of this word and a cognate to Temujin. These names and their friends were and are still common throughout the region. For example, Timur (also known as Tamerlame), of the Timurid Empire, shares the same root—Timur, like Turkish demir, means iron.\nOrdu is the Turkish word for “army”. It actually has an English cognate, “horde”! Quite a few European languages seem to have picked this word up via contact with Central Asians. The most likely source appears to be Proto-Turkic, which makes sense given the role they played in Central Asian empires. But there’s another cognate to ordu that’s even more interesting: Urdu, the national language of Pakistan. The Mughal Empire of India established Persian as the official language of the empire, and the Hindustani dialect spoken in the military camps came to be referred to as “Zaban-e-Urdu” in Persian, or “language of the army”, eventually being shortened to just “Urdu”.\nRickshaws are small, hand-drawn passenger carts that were (and in some places, are) popular in Asia. It comes from the Japanese word 人力車 jinrikisha. But when it entered the English language, it actually already had a cognate, a word that came from the same root: wheel.\nFive thousand years, a group called the Yamnaya used carts and wagons on the Ukrainian Steppe. This group is generally accepted to be the source of the Indo-European Languages—a language family encompassing languages as diverse as English, Persian, and Hindi. Their word for wheel was probably something like *kʷékʷlos. This evolved over time to be something like *hwehwlą, in Proto-Germanic, the most recent common ancestor of languages like German, English, and Norwegian. This eventually became hweōl in Old English and wheel* today. That was journey that the word *kʷékʷlos took westward to arrive in English as wheel. But how did it arrive in Japanese as jinrikishaw?\nSoğan\nChanterelle mushrooms"
+    "text": "This is a running list of etymologies that I think are neat."
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -40,5 +40,26 @@
     "title": "Post With Code",
     "section": "",
     "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/20240517-interesting-etymologies/etymologies.html#temujin",
+    "href": "posts/20240517-interesting-etymologies/etymologies.html#temujin",
+    "title": "Daniel Geiszler",
+    "section": "Temujin",
+    "text": "Temujin\nGenghis Khan was just a title; his real name was Temujin. Temujin is a Mongolic name that was probably borrowed from the Proto-Turkic *temürči meaning “blacksmith”. The -ci suffix denotes a person who works with something, in this case *temür, or iron. Modern Turkish’s “demirci”, also meaning “blacksmith”, is a descendent of this word and a cognate to Temujin. These names and their friends were and are still common throughout the region. For example, Timur (also known as Tamerlame), of the Timurid Empire, shares the same root—Timur, like Turkish demir, means iron."
+  },
+  {
+    "objectID": "posts/20240517-interesting-etymologies/etymologies.html#ordu",
+    "href": "posts/20240517-interesting-etymologies/etymologies.html#ordu",
+    "title": "Daniel Geiszler",
+    "section": "Ordu",
+    "text": "Ordu\nOrdu is the Turkish word for “army”. It actually has an English cognate, “horde”! Quite a few European languages seem to have picked this word up via contact with Central Asians. The most likely source appears to be Proto-Turkic, which makes sense given the role they played in Central Asian empires. But there’s another cognate to ordu that’s even more interesting: Urdu, the national language of Pakistan. The Mughal Empire of India established Persian as the official language of the empire, and the Hindustani dialect spoken in the military camps came to be referred to as “Zaban-e-Urdu” in Persian, or “language of the army”, eventually being shortened to just “Urdu”."
+  },
+  {
+    "objectID": "posts/20240517-interesting-etymologies/etymologies.html#rickshaw",
+    "href": "posts/20240517-interesting-etymologies/etymologies.html#rickshaw",
+    "title": "Daniel Geiszler",
+    "section": "Rickshaw",
+    "text": "Rickshaw\nRickshaws are small, hand-drawn passenger carts that were (and in some places, are) popular in Asia. It comes from the Japanese word 人力車 jinrikisha. But when it entered the English language, it actually already had a cognate, a word that came from the same root: wheel.\nFive thousand years, a group called the Yamnaya used carts and wagons on the Ukrainian Steppe. This group is generally accepted to be the source of the Indo-European Languages—a language family encompassing languages as diverse as English, Persian, and Hindi. Their word for wheel was probably something like *kʷékʷlos. This evolved over time to be something like *hwehwlą, in Proto-Germanic, the most recent common ancestor of languages like German, English, and Norwegian. This eventually became *hweōl in Old English and wheel today. That was journey that the word *kʷékʷlos took westward to arrive in English as wheel. But how did it arrive in Japanese as jinrikishaw?\nNot all of the Yamnaya people went west into Europe. Some went south into Iran and India, others went east to the edge of Mongolia. We call the earliest of these people the Afanasievo Culture, but we only know them through their archeological remains. One of the things we know about them, however, is that they used carts as early as ~3500 BCE. They are also likely to be the source of a group known as the Tocharians, that lived in the Tarim Basin in modern day Xinjiang, China. They spoke a family of languages known as Tocharian and were producing manuscripts in their languages as late as 500-800 AD. Between the Afanasievans and the Tocharians, there was almost certainly a continuous, cart-using Indo-European presence on the Chinese periphery for roughly 4000 years, a time period including the earliest known presence of wheeled vehicles in China.\nSome of these Indo-European speakers are likely the source of the Old Chinese word for wheeled vehicles, 車, which would have been pronounced *kʰlja around 1200 BC. This evolved into something like *t͡ɕʰia in Middle Chinese. That was borrowed into Japanese as 人力車 jinrikisha, or “human-power cart”, recognizably the same word we use in English today and a cognate with “wheel”."
   }
 ]
