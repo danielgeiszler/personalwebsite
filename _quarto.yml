@@ -23,6 +23,8 @@ website:
         href: https://github.com/danielgeiszler/
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?user=R-QRYkgAAAAJ&hl=en
+    right:
+      - text: "danny.geisz@gmail.com"
 
 format:
   html:
