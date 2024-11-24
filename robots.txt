@@ -1,1 +1,1 @@
-Sitemap: https://danielgeiszler.github.io/personalwebsite/sitemap.xml
+Sitemap: https://danny.bio/sitemap.xml
