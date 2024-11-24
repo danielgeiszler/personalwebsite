@@ -9,8 +9,11 @@ website:
     right:
       - text: About
         href: about.qmd
+      - text: CV
+        href: DanielGeiszler_CV_20240425_A4.pdf
       - text: Blog
         href: blog.qmd
+
 format:
   html:
     theme: cosmic
