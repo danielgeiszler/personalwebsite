@@ -5,16 +5,12 @@ about:
   template: trestles
   links:
     - icon: twitter
-      text: Twitter
       href: https://x.com/GeiszlerDaniel
     - icon: linkedin
-      text: LinkedIn
       href: https://www.linkedin.com/in/daniel-geiszler-868077a6/
     - icon: github
-      text: Github
       href: https://github.com/danielgeiszler/
     - icon: mortarboard-fill
-      text: Scholar
       href: https://scholar.google.com/citations?user=R-QRYkgAAAAJ&hl=en
 ---
 
