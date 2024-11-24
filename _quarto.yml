@@ -7,10 +7,10 @@ website:
   description: "This is Danny's personal blog."
   navbar:
     right:
-      - text: Blog
-        href: blog.qmd
       - text: About
         href: about.qmd
+      - text: Blog
+        href: blog.qmd
 format:
   html:
     theme: cosmic
