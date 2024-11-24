@@ -1,8 +1,8 @@
 ---
-pagetitle: "Daniel Geiszler"
+pagetitle: "Daniel Geiszler - About"
 image: profile.jpg
 about:
-  template: jolla
+  template: trestles
   links:
     - icon: twitter
       text: Twitter
@@ -20,4 +20,18 @@ about:
 
 # Hi, I'm Danny 🧬
 
-a Bioinformatics PhD doing computational proteomics
+I’m a bioinformatician that develops computational tools for proteomics, especially to study post-translational modifications (PTMs), which I think are pretty neat. Right now, I’m at Istanbul’s Koç University as an EMBO Postdoctoral Fellow working in the Özlü Lab, trying to figure out how to maximize the PTM information we can get out of DIA data using machine learning and Bayesian statistics.
+
+#### Things I know about
+* Bioinformatics
+* Proteomics
+* Post-translational modifications
+* Mass spectrometry
+* Molecular biology, biochemistry
+* Statistics, probability, data science
+* Python, Java
+* English, Spanish, Turkish
+
+Previously, I did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab, where I developed PTM-Shepherd and contributed to the upkeep of FragPipe, as well as helping in several PTM-related statistics and data science projects. In 2022, I moved to Turkey to start work in biomarker discovery as a Marie Curie-TÜBİTAK CoFund Fellow.
+
+Outside the lab, you can find me drinking coffee and learning languages. If you're ever up for a friendly chat or potential collaboration, don't hesitate to reach out.

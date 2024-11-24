@@ -7,8 +7,6 @@ website:
   description: "This is Danny's personal blog."
   navbar:
     right:
-      - text: About
-        href: about.qmd
       - text: CV
         href: DanielGeiszler_CV_20240425_A4.pdf
       - text: Blog
