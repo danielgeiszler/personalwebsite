@@ -15,4 +15,6 @@ Not all of the Yamnaya people went west into Europe. Some went south into Iran a
 
 Some of these Indo-European speakers are likely the source of the [Old Chinese](https://en.m.wikipedia.org/wiki/Old_Chinese) word for wheeled vehicles, 車, which would have been pronounced *[\*kʰlja](https://en.m.wiktionary.org/wiki/%E8%BB%8A#Chinese)* around 1200 BC. This  evolved into something like *\*t͡ɕʰia* in [Middle Chinese](https://en.m.wikipedia.org/wiki/Middle_Chinese). That was borrowed into Japanese as [人力車](https://en.m.wiktionary.org/wiki/%E4%BA%BA%E5%8A%9B%E8%BB%8A#Japanese "人力車") _jinrikisha_, or “human-power cart”, recognizably the same word we use in English today and a cognate with “wheel”.
 
+TestPAT
+
 
