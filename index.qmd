@@ -11,8 +11,8 @@ about:
 
 #### Hi, I'm Danny 🧬
 
-I'm an EMBO Postdoctoral Fellow at Istanbul’s Koç University, trying to figure out how to maximize the PTM information we can get out of DIA data using machine learning and Bayesian statistics.
+I'm an EMBO Postdoctoral Fellow at Istanbul’s Koç University, trying to figure out how to maximize the PTM information we can get out of DIA data using machine learning and Bayesian statistics. My field of study is **computational proteomics**, with a specialization in **post-translational modifications**, especially **open searches**, **glycosylation**, and **chemoproteomics**.
 
-I did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab where I developed PTM-Shepherd and contributed to the upkeep of FragPipe, as well as helping in several PTM-related statistics and data science projects. In 2022, I moved to Turkey to start work in biomarker discovery as a Marie Curie-TÜBİTAK CoFund Fellow.
+I did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab where I developed PTM-Shepherd and contributed to FragPipe, as well as helping in several PTM-related statistics and data science projects.
 
 If you're ever up for a friendly chat or potential collaboration, don't hesitate to reach out.
