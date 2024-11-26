@@ -6,15 +6,12 @@ website:
   favicon: favicon.png
   description: "This is Danny's personal blog."
   navbar:
-    right:
+    left:
       - text: CV
         href: DanielGeiszler_CV_20240425_A4.pdf
       - text: Blog
         href: blog.qmd
-  page-footer:
-    left:
-      - text: "© Daniel Geiszler 2024"
-    center:
+    right:
       - icon: twitter
         href: https://x.com/GeiszlerDaniel
       - icon: linkedin
@@ -23,6 +20,12 @@ website:
         href: https://github.com/danielgeiszler/
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?user=R-QRYkgAAAAJ&hl=en
+  site-url: "https://danny.bio"
+  repo-url: https://github.com/danielgeiszler/personalwebsite
+  repo-actions: [source]
+  page-footer:
+    left:
+      - text: "© Daniel Geiszler 2024"
     right:
       - text: "danny.geisz@gmail.com"
 
