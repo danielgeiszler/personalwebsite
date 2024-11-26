@@ -24,10 +24,8 @@ website:
   repo-url: https://github.com/danielgeiszler/personalwebsite
   repo-actions: [source]
   page-footer:
-    left:
-      - text: "© Daniel Geiszler 2024"
-    right:
-      - text: "danny.geisz@gmail.com"
+    center: 
+      - text: "© Daniel Geiszler 2024<br>danny.geisz@gmail.com"
 
 format:
   html:
