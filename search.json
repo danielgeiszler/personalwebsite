@@ -42,6 +42,20 @@
     "text": "Hi, I’m Danny 🧬\nI’m an EMBO Postdoctoral Fellow at Istanbul’s Koç University, trying to figure out how to maximize the PTM information we can get out of DIA data using machine learning and Bayesian statistics. My field of study is computational proteomics, with a specialization in post-translational modifications, especially open searches, glycosylation, and chemoproteomics.\nI did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab where I developed PTM-Shepherd and contributed to FragPipe, as well as helping in several PTM-related statistics and data science projects.\nIf you’re ever up for a friendly chat or potential collaboration, don’t hesitate to reach out."
   },
   {
+    "objectID": "dashboards.html",
+    "href": "dashboards.html",
+    "title": "Daniel Geiszler",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTraining Dashboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2024\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "dashboards/20241201-training-dashboard/index.html",
+    "href": "dashboards/20241201-training-dashboard/index.html",
+    "title": "Training Dashboard",
+    "section": "",
+    "text": "This is a dashboard I made to track progress in the gym. Because this website is hosted on github-pages, which only allows static content, the dashboard itself automatically deploys on Render whenever there are updates and is embedded here in an iframe. If the formatting here is poor, it can be visited directly. Render will also shut down any apps that are inactive, so it may take a minute to start up once you open this page.\nIf you’re interested in using this yourself, just follow these steps:\n\nRecord your workouts in Google Sheets. I record my workouts here. This sheet contains the minimum columns required for the dashboard to function.\nPublish your workouts to the web. Go to File &gt; Share &gt; Publish to the web on your Google Sheet. Choose Entire Document and select Comma-separated values (.csv) as the format. Click Publish and confirm.\nWhen you open the dashboard, copy-paste your link into the data url field and click “Load Data”.\n\nFeel free to suggest features or make changes yourself. Enjoy!"
+  },
+  {
     "objectID": "posts/20240517-interesting-etymologies/etymologies.html",
     "href": "posts/20240517-interesting-etymologies/etymologies.html",
     "title": "Daniel Geiszler",
