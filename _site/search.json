@@ -75,5 +75,19 @@
     "title": "Daniel Geiszler",
     "section": "Rickshaw",
     "text": "Rickshaw\nRickshaws are small, hand-drawn passenger carts that were (and in some places, are) popular in Asia. It comes from the Japanese word 人力車 jinrikisha. But when it entered the English language, it actually already had a cognate, a word that came from the same root: wheel.\nFive thousand years, a group called the Yamnaya used carts and wagons on the Ukrainian Steppe. This group is generally accepted to be the source of the Indo-European Languages—a language family encompassing languages as diverse as English, Persian, and Hindi. Their word for wheel was probably something like *kʷékʷlos. This evolved over time to be something like *hwehwlą, in Proto-Germanic, the most recent common ancestor of languages like German, English, and Norwegian. This eventually became *hweōl in Old English and wheel today. That was journey that the word *kʷékʷlos took westward to arrive in English as wheel. But how did it arrive in Japanese as jinrikishaw?\nNot all of the Yamnaya people went west into Europe. Some went south into Iran and India, others went east to the edge of Mongolia. We call the earliest of these people the Afanasievo Culture, but we only know them through their archeological remains. One of the things we know about them, however, is that they used carts as early as ~3500 BCE. They are also likely to be the source of a group known as the Tocharians, that lived in the Tarim Basin in modern day Xinjiang, China. They spoke a family of languages known as Tocharian and were producing manuscripts in their languages as late as 500-800 AD. Between the Afanasievans and the Tocharians, there was almost certainly a continuous, cart-using Indo-European presence on the Chinese periphery for roughly 4000 years, a time period including the earliest known presence of wheeled vehicles in China.\nSome of these Indo-European speakers are likely the source of the Old Chinese word for wheeled vehicles, 車, which would have been pronounced *kʰlja around 1200 BC. This evolved into something like *t͡ɕʰia in Middle Chinese. That was borrowed into Japanese as 人力車 jinrikisha, or “human-power cart”, recognizably the same word we use in English today and a cognate with “wheel”.\nTestPAT"
+  },
+  {
+    "objectID": "dashboards.html",
+    "href": "dashboards.html",
+    "title": "Daniel Geiszler",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTraining Dashboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2024\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "dashboards/20241201-training-dashboard/index.html",
+    "href": "dashboards/20241201-training-dashboard/index.html",
+    "title": "Training Dashboard",
+    "section": "",
+    "text": "This is a dashboard I made to track progress in the gym. Because this website is hosted on github-pages, which only allows static content, the dashboard itself automatically deploys on Render whenever there are updates and is embedded here in an iframe. If the formatting here is poor, it can be visited directly. Render will also shut down any apps that are inactive, so it may take a minute to start up once you open this page.\nIf you’re interested in using this yourself, just follow these steps:\n\nRecord your workouts in Google Sheets. I record my workouts here. This sheet contains the minimum columns required for the dashboard to function.\nPublish your workouts to the web. Go to File &gt; Share &gt; Publish to the web on your Google Sheet. Choose Entire Document and select Comma-separated values (.csv) as the format. Click Publish and confirm.\nWhen you open the dashboard, copy-paste your link into the data url field and click “Load Data”.\n\nFeel free to suggest features or make changes yourself. Enjoy!"
   }
 ]

@@ -1,0 +1,26 @@
+---
+title: "Training Dashboard"
+author: "Daniel Geiszler"
+date: "2024-12-01"
+categories: []
+---
+
+This is a dashboard I made to track progress in the gym. Because this website is hosted on github-pages, which only allows static content, the dashboard itself automatically deploys on Render whenever there are updates and is embedded here in an iframe. If the formatting here is poor, it can be visited [directly](https://trainingdashboard.onrender.com/). Render will also shut down any apps that are inactive, so it may take a minute to start up once you open this page. 
+
+If you're interested in using this yourself, just follow these steps:
+
+1. Record your workouts in Google Sheets. I record my workouts [here](https://docs.google.com/spreadsheets/d/e/2PACX-1vTGybeaYEQpfKUPm8Uj2i-1NJaWFTfOfW0azSCCGxprB2WBQzQOpzQ5gh9z8uojmKNM5w11xQrz_AHf/pub?output=csv). This sheet contains the minimum columns required for the dashboard to function.
+
+2. Publish your workouts to the web. Go to File > Share > Publish to the web on your Google Sheet. Choose Entire Document and select Comma-separated values (.csv) as the format.
+Click Publish and confirm.
+
+3. When you open the dashboard, copy-paste your link into the data url field and click "Load Data".
+
+Feel free to [suggest features or make changes yourself](https://github.com/danielgeiszler/TrainingDashboard). Enjoy!
+
+<iframe 
+    src="https://trainingdashboard.onrender.com" 
+    width="100%" 
+    height="600px" 
+    style="border:none;">
+</iframe>

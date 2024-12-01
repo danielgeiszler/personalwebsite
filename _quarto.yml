@@ -11,6 +11,9 @@ website:
         href: DanielGeiszler_CV_20241125_A4.pdf
       - text: Blog
         href: blog.qmd
+      - text: Dashboards
+        href: dashboards.qmd
+
     right:
       - icon: twitter
         href: https://x.com/GeiszlerDaniel
