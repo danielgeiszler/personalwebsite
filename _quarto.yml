@@ -35,5 +35,9 @@ format:
     theme: cosmic
     css: styles.css
 
+blog:
+  dir: posts
+  type: jupyter
+
 
 
