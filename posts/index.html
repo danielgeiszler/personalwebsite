@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Geiszler">
+<meta name="dcterms.date" content="2024-12-15">
+
+<title>Learning Pyro for Better Content Sorting – Daniel Geiszler</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-41ce87c438ccaeb35f64ae41c48547a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Daniel Geiszler</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../DanielGeiszler_CV_20241125_A4.pdf"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../dashboards.html"> 
+<span class="menu-text">Dashboards</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/GeiszlerDaniel"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/daniel-geiszler-868077a6/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/danielgeiszler/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=R-QRYkgAAAAJ&amp;hl=en"> <i class="bi bi-mortarboard-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Learning Pyro for Better Content Sorting</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">machine learning</div>
+                <div class="quarto-category">python</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel Geiszler </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 15, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<hr>
+<p>I’ve been looking for a reason to learn to use the Pyro library in Python for Markov Chain Monte Carlo (MCMC) simulations, and I’ve finally found one. This is me documenting how to learn to use it for future reference, and hopefully you’ll be able to get something out of it too.</p>
+<p>Have you ever sorted content on a website by “Top Ranked” or something similar, only do be inundated with a bunch of posts with a 100% rating but only a tiny number of reviews? It can make it frustrating or impossible to find “the best” of something when it’s hiding below hundreds or thousands of other things. If you’re going to rank by the average score for a piece of content, it’s inevitable that you’ll end up with some items near the top of the list that shouldn’t be. This happens because low sample sizes (e.g., a small number of reviews or upvotes) lead to a wide variety of estimates of the content’s “true” rating.</p>
+<p>Thankfully, lots of smart companies have come up with better ways to rank their content! Reddit, for example, used to use <a href="https://github.com/reddit-archive/reddit/blob/master/r2/r2/lib/db/_sorts.pyx#L41">a confidence interval around the score of the of a post</a> (see the cpdef double _confidence function) to account for uncertainty in its “true” score. This has the effect of penalizing upvoted posts that have a low score with only a handful of upvotes, but it will also boost downvoted posts in the same situation. As the number of votes increases, the confidence in the post’s true rating also increases.</p>
+<p>Other companies seem to have an issue with this. For example, Google Maps has pretty limited options on what you can sort by, and instead only allows you to <a href="https://stackoverflow.com/questions/50070220/sorting-google-maps-places-by-number-of-reviews">filter based on certain ranges of average review score</a>. This still leaves the top results polluted by new, fake, or closed restaurants when you’re going out to eat. This isn’t a good system, and I frequently find myself with bad results. You have to go to an <a href="https://www.top-rated.online/">entirely different website</a> to get decent results.</p>
+<p>Finding a better estimate of a restaurant’s “true rating” is a good use case for Pyro, a probabilistic programming language thats uses PyTorch. Pyro make it easy to find a restaurant’s “true rating” (posterior probability) given its current ratings (likelihood) and some assumptions about what its true rating is likely to be before any reviews are given (prior probability). These problems can be solved using MCMC simulations to estimate the posterior probability. PyTorch is supposed to make these sorts of problems easy, so I’m going to use it to estimate the posterior probabilities of some content and learn how to use Pyro along the way.</p>
+<p>Installing PyTorch isn’t as simple as most other python packages, so I recommend looking at their website to do it (https://pytorch.org/). Beyond that, you’ll also need pandas and the pyro package (https://pyro.ai/).</p>
+<div id="91c8b312" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyro</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyro.distributions <span class="im">as</span> dist</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyro.infer <span class="im">import</span> MCMC, NUTS, SVI, Trace_ELBO</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyro.optim <span class="im">import</span> Adam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you installed PyTorch correctly and you have an nVidia GPU, you can run this to see if your GPU is available for PyTorch to use. This workbook should still work even if this isn’t true, instead running the simulations on your CPU. The first few will run on the default device, but I’ll switch to my GPU later.</p>
+<div id="9030a6f5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> torch.cuda.is_available():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"CUDA is available. GPU is ready to be used."</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"CUDA is not available. Running on CPU."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CUDA is available. GPU is ready to be used.</code></pre>
+</div>
+</div>
+<p>As a toy example, let’s consider a restaurant or some other piece of content that has a single upvote in an upvote/downvote rating system. This will run on the default device regardless of your GPU setup.</p>
+<div id="65a4880b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data: 1 thumb up out of 1 observation</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> torch.tensor([<span class="fl">1.</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We first need to define a model that PyTorch will simulate.</p>
+<ul>
+<li><p>The pyro.sample function here is given two arguments: the name of your sample and the prior distribution. In this case, we use the Beta(1,1) distribution as our prior. This draws a sample from the Beta(1,1) distribution for our prior. The beta distribution is a common prior when estimating probabilities because of both the posterior and the prior are defined over [0,1]. It is also a <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a> for the Binomial distribution, which is the distribution for a series of up-down votes. The Beta(1,1) is a uniform distribution, which indicates we have no information about the prior probability. In practice, Betas tend to be used more than Uniforms due to their flexibility, but the results should be the same regardless. It is also easy to interpret in our case because the Beta(a,b) parameters a and b correspond to pseudocounts for upvotes and downvotes for our content. This will come in handy later.</p></li>
+<li><p>The pyro.plate function indicates that all of the observations are IID, and again takes two arguments: a name and the number of observations. We then use the pyro.sample function again, but this time the probability of success (in this case, an upvoted restaurants) is given by the the probability from the first step, and our observed data is used as our evidence.</p></li>
+</ul>
+<div id="fe1d24ca" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the model</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> beta_model(data):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prior distribution for the probability of a thumb up</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    prob_thumb_up <span class="op">=</span> pyro.sample(<span class="st">"prob_thumb_up"</span>, dist.Beta(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observing the data</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pyro.plate(<span class="st">"data"</span>, <span class="bu">len</span>(data)):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        pyro.sample(<span class="st">"obs"</span>, dist.Bernoulli(prob_thumb_up), obs<span class="op">=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To simulate our posterior, we use NUTS (<a href="https://stats.stackexchange.com/questions/311813/can-somebody-explain-to-me-nuts-in-english">No U-turn Sampler</a>). We then run our MCMC method to extract all of the posterior simulations. The NUTS sampler starts off slow and not giving useful information at the beginning, so we throw out the first warmup_steps.</p>
+<div id="8bfc47f1" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run sampling</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nuts_kernel <span class="op">=</span> NUTS(beta_model)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mcmc <span class="op">=</span> MCMC(nuts_kernel, num_samples<span class="op">=</span><span class="dv">100</span>, warmup_steps<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mcmc.run(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sample: 100%|██████████| 300/300 [00:00, 315.72it/s, step size=1.05e+00, acc. prob=0.872]</code></pre>
+</div>
+</div>
+<p>Now that our 100 samples have run in ~1 second, we can see what our posterior distribution looks like.</p>
+<div id="1f6697e3" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract samples</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> mcmc.get_samples()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>prob_thumb_up_samples <span class="op">=</span> samples[<span class="st">'prob_thumb_up'</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make histogram of samples</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>samples_df <span class="op">=</span> pd.DataFrame(samples)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>samples_df.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'prob_thumb_up': tensor([0.9948, 0.9911, 0.9932, 0.8157, 0.9069, 0.9725, 0.9605, 0.7183, 0.6688,
+        0.4664, 0.4664, 0.1412, 0.4164, 0.4164, 0.4718, 0.4669, 0.1655, 0.1651,
+        0.9353, 0.9179, 0.9453, 0.6563, 0.9291, 0.9523, 0.9919, 0.9892, 0.8332,
+        0.8525, 0.7400, 0.7400, 0.8004, 0.8386, 0.8639, 0.8639, 0.8468, 0.9864,
+        0.7228, 0.2010, 0.8474, 0.6574, 0.6523, 0.6671, 0.6671, 0.7251, 0.8520,
+        0.8915, 0.2909, 0.4525, 0.2638, 0.4680, 0.5942, 0.3475, 0.3475, 0.8394,
+        0.8396, 0.7719, 0.7719, 0.3881, 0.3250, 0.5279, 0.6887, 0.0769, 0.9948,
+        0.9938, 0.9592, 0.9085, 0.1504, 0.9345, 0.5709, 0.4091, 0.6242, 0.9275,
+        0.1048, 0.9889, 0.9549, 0.9138, 0.7142, 0.7142, 0.8877, 0.8169, 0.8869,
+        0.7573, 0.7573, 0.8330, 0.7542, 0.8275, 0.6461, 0.6482, 0.6646, 0.6646,
+        0.5550, 0.5550, 0.7538, 0.5528, 0.1494, 0.4221, 0.8125, 0.7165, 0.3323,
+        0.6686])}</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>array([[&lt;Axes: title={'center': 'prob_thumb_up'}&gt;]], dtype=object)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Our probability distribution looks like it’s multimodal, when it should be unimodal. That probably means the model didn’t converge. Let’s try upping the number of samples we use to see if we can get a better behaved distribution.</p>
+<div id="df69628f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run sampling</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>nuts_kernel <span class="op">=</span> NUTS(beta_model)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>mcmc <span class="op">=</span> MCMC(nuts_kernel, num_samples<span class="op">=</span><span class="dv">10000</span>, warmup_steps<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mcmc.run(data)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract samples</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> mcmc.get_samples()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>prob_thumb_up_samples <span class="op">=</span> samples[<span class="st">'prob_thumb_up'</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Make histogram of samples</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>samples_df <span class="op">=</span> pd.DataFrame(samples)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>samples_df.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sample: 100%|██████████| 10200/10200 [00:28, 357.90it/s, step size=6.56e-01, acc. prob=0.898]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'prob_thumb_up': tensor([0.5870, 0.4914, 0.8957,  ..., 0.2461, 0.5114, 0.9622])}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>array([[&lt;Axes: title={'center': 'prob_thumb_up'}&gt;]], dtype=object)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-8-output-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This distribution looks much more regular. From this, we can calculate the confidence interval for our restaurant’s “true rating”.</p>
+<div id="5d793bae" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute confidence interval</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> torch.quantile(prob_thumb_up_samples, torch.tensor([<span class="fl">0.025</span>, <span class="fl">0.975</span>]))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated probability of thumb up: </span><span class="sc">{</span>prob_thumb_up_samples<span class="sc">.</span>mean()<span class="sc">.</span>item()<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval: </span><span class="sc">{</span>confidence_interval<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estimated probability of thumb up: 0.6559
+95% confidence interval: [0.1598558872938156, 0.9852998852729797]</code></pre>
+</div>
+</div>
+<p>We should also probably check to make sure that our estimates are valid. This particular example is trivial because of our choice of distribution and prior. Because we used a conjugate prior (Beta) for our observed data (Binomial/Bernoulli), we have a closed form solution for our expected result. I mentioned before that the a and b parameters for the Beta(a,b) distribution are pseudocounts for successes (thumbs up) and failures (thumbs down), respectively. That means that if our prior distribution has the form Beta(1,1) and we have observed 1 additional success, our posterior distribution has the form Beta(2,1).</p>
+<p>You can see slide 12 of David Maracek’s excellent <a href="https://ufal.mff.cuni.cz/~marecek/npfl097/02_beta_bernoulli.pdf">lecture on Beta-Bernoulli distributions</a> to see what this looks like, or you can draw the Beta(2,1) distribution yourself using <a href="https://mathlets.org/mathlets/beta-distribution/">this applet</a>.</p>
+<p>The shape of our simulated posterior looks almost exactly like our expected output. Success!</p>
+<p>How a content rating system wants to use this information would be up to them. In Reddit’s case, it looks like they used an 80% bound to rank their posts. If you want your ranking to be much stricter, you could use the lower bound of the credible interval, which would push new entries to the bottom of the ranking. You could also increase the number of pseudocounts in your Beta prior to something like the mean value of upvotes and downvotes, which may be more appropriate if you want new content to be ranked “average” until proven otherwise.</p>
+<p>In some cases, it may be more appropriate to do this in a regression framework so that you can control for other variables. I’m going to repeat this analysis using logistic regression, which models the log-odds of a success. I’ll also do it on the GPU (although for small samples and simple models this may not be necessary due to the overhead incurred by moving data to your GPU).</p>
+<p>First we’ll check to see if we can use our GPU. If we can, we’ll create our data on our GPU. All of the data needs to be in one place for this to work and it will default to your CPU, so you’ll need to explicitly put everything on your GPU. A GPU will actually be a bit slower for this use case due to the overhead incurred, but it’s a good reference for larger models.</p>
+<div id="f8f11d01" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for CUDA availability and prepare data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> torch.cuda.is_available():</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"cuda"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create data tensor on GPU</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> torch.tensor([<span class="fl">1.</span>]).to(device)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Data moved to GPU."</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"cpu"</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> torch.tensor([<span class="fl">1.</span>]).to(device)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"CUDA not available, running on CPU."</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Validate devices</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>torch.cuda.get_device_name(torch.cuda.current_device())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data moved to GPU.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>'NVIDIA GeForce RTX 3050 Laptop GPU'</code></pre>
+</div>
+</div>
+<p>Next we’ll define our model. This model is going to look different from the previous one. In our logistic regression, the intercept will give us the log-odds of our restaurant’s true probability of thumbs up. This parameter is no longer bounded on [0,1], which means the Beta distribution is no longer appropriate. There are a few options here. * A normal distribution with mean 0 (p = 0.5 means the odds are (0.5) / (1 - 0.5) = 1, and log(1) = 0. This is a common choice, but choosing the variance is tricky because there is no closed form solution, so we would have to pick one based on how informative we want it to be. * A Cauchy distribution with mean 0 (for the same reason) and scale 2.5. This is based on the recommendation of Gelman et al (2008) (http://www.stat.columbia.edu/~gelman/research/published/priors11.pdf). There is still no way to properly estimate the variance of the intercept, so our choice is again going to affect our outcomes.</p>
+<div id="d03f4f18" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logistic_model(data):  </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create parameters for the distribution on the correct device</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> torch.tensor(<span class="fl">0.</span>, device<span class="op">=</span>device)  <span class="co"># Ensure mean is a tensor on GPU</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> torch.tensor(<span class="fl">2.5</span>, device<span class="op">=</span>device)  <span class="co"># Ensure standard deviation is a tensor on GPU</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the Cauchy distribution with parameters on the correct device</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    prior_dist <span class="op">=</span> dist.Cauchy(mean, scale)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample intercept from the distribution</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    intercept <span class="op">=</span> pyro.sample(<span class="st">"intercept"</span>, prior_dist)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observing the data with Bernoulli likelihood</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pyro.plate(<span class="st">"data_plate"</span>, <span class="bu">len</span>(data)):</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        pyro.sample(<span class="st">"obs"</span>, dist.Bernoulli(logits<span class="op">=</span>intercept), obs<span class="op">=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we repeat our sampling. I repeated this a few times before settling on 2000 samples for decent convergence.</p>
+<div id="2cf26b57-c0c1-425d-8b8f-e727bca47115" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#NUTS sampler</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>nuts_kernel <span class="op">=</span> NUTS(logistic_model)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>mcmc <span class="op">=</span> MCMC(nuts_kernel, num_samples<span class="op">=</span><span class="dv">2000</span>, warmup_steps<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>mcmc.run(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sample: 100%|██████████| 2200/2200 [00:40, 54.64it/s, step size=1.72e-01, acc. prob=0.923] </code></pre>
+</div>
+</div>
+<p>And again check our model convergence. To plot these, we’ll also need to transfer these back to our CPU. We expect a normal distribution for the intercept parameter if the model converged. There are better ways to check the convergence such as Effective Sample Size (ESS) or Gelman-Rubin convergence, but they require running multiple chains which is finnicky on Windows.</p>
+<div id="2d0e3bf6" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check model convergence</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>intercept_df <span class="op">=</span> pd.DataFrame({<span class="st">'intercept'</span> : mcmc.get_samples()[<span class="st">'intercept'</span>].to(<span class="st">'cpu'</span>)})</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>intercept_df.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>array([[&lt;Axes: title={'center': 'intercept'}&gt;]], dtype=object)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-13-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That doesn’t look very normal! Probably because we only have one sample. It’s possible that a distribution with smaller tails, like the normal, will work better here. Let’s try again with the normal distribution.</p>
+<div id="cb6f3cb7-1e31-4816-b47b-498fb04d039b" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logistic_model(data):  </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create parameters for the distribution on the correct device</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> torch.tensor(<span class="fl">0.</span>, device<span class="op">=</span>device)  <span class="co"># Ensure mean is a tensor on GPU</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> torch.tensor(<span class="fl">2.5</span>, device<span class="op">=</span>device)  <span class="co"># Ensure standard deviation is a tensor on GPU</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the Normal distribution with parameters on the correct device</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    prior_dist <span class="op">=</span> dist.Normal(mean, scale)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample intercept from the distribution</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    intercept <span class="op">=</span> pyro.sample(<span class="st">"intercept"</span>, prior_dist)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observing the data with Bernoulli likelihood</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pyro.plate(<span class="st">"data_plate"</span>, <span class="bu">len</span>(data)):</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>        pyro.sample(<span class="st">"obs"</span>, dist.Bernoulli(logits<span class="op">=</span>intercept), obs<span class="op">=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a1f2ec0d-d10f-4053-9109-d868c92423e9" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#NUTS sampler</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>nuts_kernel <span class="op">=</span> NUTS(logistic_model)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mcmc <span class="op">=</span> MCMC(nuts_kernel, num_samples<span class="op">=</span><span class="dv">2000</span>, warmup_steps<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>mcmc.run(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sample: 100%|██████████| 2200/2200 [00:19, 112.19it/s, step size=1.21e+00, acc. prob=0.923]</code></pre>
+</div>
+</div>
+<div id="b8573ba1-ffc2-4080-9dd4-a16b36d77196" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check model convergence</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>intercept_df <span class="op">=</span> pd.DataFrame({<span class="st">'intercept'</span> : mcmc.get_samples()[<span class="st">'intercept'</span>].to(<span class="st">'cpu'</span>)})</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>intercept_df.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>array([[&lt;Axes: title={'center': 'intercept'}&gt;]], dtype=object)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-16-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That looks pretty normal now. We’ll need to turn these back into probabilities using the signmoid function.</p>
+<div id="3a1471ea" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract samples</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> mcmc.get_samples()[<span class="st">'intercept'</span>].to(<span class="st">'cpu'</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot probabilities</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>inferred_probs_df <span class="op">=</span> pd.DataFrame({<span class="st">'probs'</span> : torch.sigmoid(samples)})</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>inferred_probs_df.hist()</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>inferred_prob <span class="op">=</span> torch.sigmoid(samples).mean().item()</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Inferred probability of a thumb up: </span><span class="sc">{</span>inferred_prob<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute confidence interval</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>confidence_interval_vals <span class="op">=</span> torch.quantile(samples, torch.tensor([<span class="fl">0.025</span>, <span class="fl">0.975</span>]))</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> torch.sigmoid(confidence_interval_vals)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval: </span><span class="sc">{</span>confidence_interval<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inferred probability of a thumb up: 0.7413
+95% confidence interval: [0.1398516297340393, 0.9961099028587341]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-17-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Our original estimate using the beta distribution was 0.6649 with a 95% confidence interval: [0.1617867797613144, 0.9869610667228699]. That’s a bit different from this, but the choice of prior influences the outcome. Overall though, that looks like a pretty good estimate of the analytical solution despite only having a single sample.</p>
+<p>What happens if we increased the number of samples to 100? How accurate can we get with a moderate amount of data? Let’s say we want to model something with a 90% upvote rate, so 90 thumbs up and 10 thumbs down.</p>
+<div id="b053d8b7" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data: 90 thumbs up, 10 thumbs down</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> torch.cat((torch.ones(<span class="dv">90</span>), torch.zeros(<span class="dv">10</span>)))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rerun model with reduced steps</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>nuts_kernel <span class="op">=</span> NUTS(beta_model)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>mcmc <span class="op">=</span> MCMC(nuts_kernel, num_samples<span class="op">=</span><span class="dv">2000</span>, warmup_steps<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>mcmc.run(data)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract samples</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> mcmc.get_samples()</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>prob_thumb_up_samples <span class="op">=</span> samples[<span class="st">'prob_thumb_up'</span>]</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Make histogram of samples</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>samples_df <span class="op">=</span> pd.DataFrame(samples)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>samples_df.hist()</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute confidence interval</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> torch.quantile(prob_thumb_up_samples, torch.tensor([<span class="fl">0.025</span>, <span class="fl">0.975</span>]))</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated probability of thumb up: </span><span class="sc">{</span>prob_thumb_up_samples<span class="sc">.</span>mean()<span class="sc">.</span>item()<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval: </span><span class="sc">{</span>confidence_interval<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sample: 100%|██████████| 2200/2200 [00:06, 358.01it/s, step size=1.25e+00, acc. prob=0.899]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estimated probability of thumb up: 0.8920
+95% confidence interval: [0.8236452341079712, 0.9434589743614197]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-18-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>An estimate of 0.89 for a 90% upvoted piece of content is pretty good, and the spread on the estimate is much tighter than before.</p>
+<p>This is still a really simple model, though. For more complicated models, MCMC might be prohibitively slow. For real life scenarios, it’s inlikely to be doing something with this few samples and this simple of a model. In these cases, you might want to try variational inference (VI) instead of MCMC. VI allows you to turn the sampling problem into an optimization problem, where you optimize the parameters of a distirbution directly. Here I’m going to use the Adam optomizer, which is short for adaptive gradient descent. It’s popular in lots of mcahine learning applications due to its speed and ability to handle sparse gradients. We can check to see how well Adam is optimizing by checking to see if the evidence lower bound (ELBO) converges. We can pump up our data a bit, too.</p>
+<div id="33735edf-f652-457f-a466-6865dc04a877" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the guide (variational posterior)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> guide(data):</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variational parameters for the intercept</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    mean_q <span class="op">=</span> pyro.param(<span class="st">"mean_q"</span>, torch.tensor(<span class="fl">0.0</span>, device<span class="op">=</span>device))</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    scale_q <span class="op">=</span> pyro.param(<span class="st">"scale_q"</span>, torch.tensor(<span class="fl">1.0</span>, device<span class="op">=</span>device), constraint<span class="op">=</span>dist.constraints.positive)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    pyro.sample(<span class="st">"intercept"</span>, dist.Normal(mean_q, scale_q))</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Data: 900 thumbs up, 100 thumbs down, and make sure its in the right place</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> torch.cat((torch.ones(<span class="dv">900</span>), torch.zeros(<span class="dv">100</span>))).to(device)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the optimizer and inference algorithm</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> Adam({<span class="st">"lr"</span>: torch.tensor(<span class="fl">0.001</span>, device<span class="op">=</span>device)})  <span class="co"># Learning rate</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>svi <span class="op">=</span> SVI(logistic_model, guide, optimizer, loss<span class="op">=</span>Trace_ELBO())</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform optimization</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>losses <span class="op">=</span> []</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> svi.step(data)  <span class="co"># Perform one step of optimization</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>    losses.append(loss)</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> step <span class="op">%</span> <span class="dv">1000</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Step </span><span class="sc">{</span>step<span class="sc">}</span><span class="ss"> - Loss: </span><span class="sc">{</span>loss<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect learned parameters</span></span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>mean_q <span class="op">=</span> pyro.param(<span class="st">"mean_q"</span>).item()</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>scale_q <span class="op">=</span> pyro.param(<span class="st">"scale_q"</span>).item()</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Posterior Mean: </span><span class="sc">{</span>mean_q<span class="sc">}</span><span class="ss">, Posterior Std: </span><span class="sc">{</span>scale_q<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot ELBO convergence</span></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>plt.plot(losses)</span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteration"</span>)</span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"ELBO Loss"</span>)</span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"ELBO Convergence"</span>)</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Step 0 - Loss: 641.3312163352966
+Step 1000 - Loss: 543.6905220746994
+Step 2000 - Loss: 568.6181250810623
+Step 3000 - Loss: 474.34459149837494
+Step 4000 - Loss: 342.52564430236816
+Step 5000 - Loss: 355.2464487552643
+Step 6000 - Loss: 343.4673839211464
+Step 7000 - Loss: 339.71015548706055
+Step 8000 - Loss: 327.89236748218536
+Step 9000 - Loss: 330.6277858018875
+Posterior Mean: 2.189785957336426, Posterior Std: 0.15260715782642365</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That elbow plot clearly converges, so it looks like the optimizer worked well. All that’s left is seeing if the estimate we got for the posterior probability of the intercept is accurate. To do that, we’ll need to transform our</p>
+<div id="e8336936-3284-4c6b-8c67-04600f1d7724" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert posterior mean (log-odds) to probability</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>posterior_mean <span class="op">=</span> pyro.param(<span class="st">"mean_q"</span>).item()</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability from logistic function</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>posterior_probability <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> math.exp(<span class="op">-</span>posterior_mean))</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(posterior_probability)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.8993285293702843</code></pre>
+</div>
+</div>
+<p>A perfect estimate!</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/danny\.bio");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © Daniel Geiszler 2024<br>danny.geisz@gmail.com
+  </li>  
+</ul>
+    <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/index.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
