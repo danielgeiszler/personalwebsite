@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>An estimate of 0.89 for a 90% upvoted piece of content is pretty good, and the spread on the estimate is much tighter than before.</p>
-<p>This is still a really simple model, though. For more complicated models, MCMC might be prohibitively slow. For real life scenarios, it’s inlikely to be doing something with this few samples and this simple of a model. In these cases, you might want to try variational inference (VI) instead of MCMC. VI allows you to turn the sampling problem into an optimization problem, where you optimize the parameters of a distirbution directly. Here I’m going to use the Adam optomizer, which is short for adaptive gradient descent. It’s popular in lots of mcahine learning applications due to its speed and ability to handle sparse gradients. We can check to see how well Adam is optimizing by checking to see if the evidence lower bound (ELBO) converges. We can pump up our data a bit, too.</p>
+<p>This is still a really simple model, though. For more complicated models, MCMC might be prohibitively slow. For real life scenarios, it’s inlikely to be doing something with this few samples and this simple of a model. In these cases, you might want to try variational inference (VI) instead of MCMC. VI allows you to turn the sampling problem into an optimization problem, where you optimize the parameters of a distirbution directly. Here I’m going to use the Adam optimizer, which is short for adaptive gradient descent. It’s popular in lots of mcahine learning applications due to its speed and ability to handle sparse gradients. We can check to see how well Adam is optimizing by checking to see if the evidence lower bound (ELBO) converges. We can pump up our data a bit, too.</p>
 <div id="33735edf-f652-457f-a466-6865dc04a877" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the guide (variational posterior)</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> guide(data):</span>
@@ -591,7 +591,7 @@ Posterior Mean: 2.189785957336426, Posterior Std: 0.15260715782642365</code></pr
 </div>
 </div>
 </div>
-<p>That elbow plot clearly converges, so it looks like the optimizer worked well. All that’s left is seeing if the estimate we got for the posterior probability of the intercept is accurate. To do that, we’ll need to transform our</p>
+<p>That elbow plot clearly converges, so it looks like the optimizer worked well. All that’s left is seeing if the estimate we got for the posterior probability of the intercept is accurate. To do that, we’ll need to transform our log odds back into a probability of thumbs up.</p>
 <div id="e8336936-3284-4c6b-8c67-04600f1d7724" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
