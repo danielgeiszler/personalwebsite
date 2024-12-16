@@ -1,6 +1,8 @@
 ---
 listing:
-  contents: posts/**/*.qmd
+  contents:
+    - posts/**/*.qmd
+    - posts/**/*.ipynb
   sort: "date desc"
   type: default
   categories: true
