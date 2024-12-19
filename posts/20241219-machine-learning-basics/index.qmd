@@ -1,0 +1,9 @@
+---
+title: "Machine Learning Basics"
+author: "Daniel Geiszler"
+date: "2024-12-19"
+categories: [machine learning]
+---
+
+{{< include machine_learning_basics.md >}}
+
