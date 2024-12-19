@@ -167,8 +167,17 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link active" data-scroll-target="#decision-trees">Decision Trees</a>
+  <ul class="collapse">
+  <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -177,9 +186,18 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Test message3</p>
+<section id="decision-trees" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>
+<p>Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).</p>
+<p>Branches are decided based on splitting criteria. Examples of splitting criteria include: 1. <strong>Gini impurity</strong>: measure how frequently a randomly chosen entry would be mislabeled based on the branch rule 2. <strong>Information gain</strong>: compared the entropy before and after splitting to see how much information is gained after the split 3. <strong>Mean squared error</strong> (regression trees): rules are chosen minimize variance in predicted values</p>
+<p>Trees can be “regularized” via pruning to prevent overfitting. This can happen in two ways: 1. <strong>Pre-pruning</strong> (early stopping): preventing new branches from being formed after a certain threshold or depth 2. <strong>Post-pruning</strong> (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data ### Random Forests Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.</p>
+<section id="boosted-trees" class="level3">
+<h3 class="anchored" data-anchor-id="boosted-trees">Boosted Trees</h3>
+<p>Boosted trees compensate for the weakness of an initial tree by building sequential trees to correct errors in previous trees. The process of averaging trees that are trained sequentially is called boosting. Some key algorithms related to boosting: 1. <strong>AdaBoost</strong>: increases the weight of incorrectly predicted data in subsequent trees 2. <strong>Gradient boosting</strong>: a specific type of boosting where a differentiable loss function is used to fit sequential models on the residuals of the previous model 3. <strong>XGBoost</strong>: a popular library implementing gradient-boosted decision trees that is optimized for efficiency</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -611,7 +629,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  © Daniel Geiszler 2024<br>danny.geisz@gmail.com
   </li>  
 </ul>
-    <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
