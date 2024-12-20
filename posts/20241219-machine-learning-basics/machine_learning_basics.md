@@ -33,6 +33,7 @@ Trees can be “regularized” via pruning to prevent overfitting. This can happ
 **Pre-pruning** (early stopping): preventing new branches from being formed after a certain threshold or depth
 
 **Post-pruning** (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data
+
 ### Random Forests
 Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.
 
