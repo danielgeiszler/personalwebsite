@@ -162,7 +162,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link active" data-scroll-target="#decision-trees">Decision Trees</a>
+  <li><a href="#types-of-learning" id="toc-types-of-learning" class="nav-link active" data-scroll-target="#types-of-learning">Types of Learning</a></li>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a>
   <ul class="collapse">
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
   </ul></li>
@@ -176,14 +177,34 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="types-of-learning" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-learning">Types of Learning</h2>
+<p><strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
+<p><strong>Unsupervised learning</strong>: using unlabeled data to find patterns or clusters without having predefined labels</p>
+<p><strong>Semi-supervised learning</strong>: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties</p>
+<p><strong>Online learning</strong>: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome</p>
+<p><strong>Federated learning</strong>: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled</p>
+<p><strong>Reinforcement learning</strong>: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not</p>
+<p><strong>Self-supervised learning</strong>: learning where the model generates its own labels from artificially constructed data</p>
+<p><strong>Transfer learning</strong>: adapting a model made for one task to a new task without additional training</p>
+<p><strong>Fine-tuning</strong>: a type of transfer learning involving adapting a model that was previously trained on one dataset for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model</p>
+</section>
 <section id="decision-trees" class="level2">
 <h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>
 <p>Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).</p>
-<p>Branches are decided based on splitting criteria. Examples of splitting criteria include: 1. <strong>Gini impurity</strong>: measure how frequently a randomly chosen entry would be mislabeled based on the branch rule 2. <strong>Information gain</strong>: compared the entropy before and after splitting to see how much information is gained after the split 3. <strong>Mean squared error</strong> (regression trees): rules are chosen minimize variance in predicted values</p>
-<p>Trees can be “regularized” via pruning to prevent overfitting. This can happen in two ways: 1. <strong>Pre-pruning</strong> (early stopping): preventing new branches from being formed after a certain threshold or depth 2. <strong>Post-pruning</strong> (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data ### Random Forests Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.</p>
+<p>Branches are decided based on splitting criteria. Examples of splitting criteria include:</p>
+<p><strong>Gini impurity</strong>: measure how frequently a randomly chosen entry would be mislabeled based on the branch rule</p>
+<p><strong>Information gain</strong>: compared the entropy before and after splitting to see how much information is gained after the split</p>
+<p><strong>Mean squared error</strong> (regression trees): rules are chosen minimize variance in predicted values</p>
+<p>Trees can be “regularized” via pruning to prevent overfitting. This can happen in two ways:</p>
+<p><strong>Pre-pruning</strong> (early stopping): preventing new branches from being formed after a certain threshold or depth</p>
+<p><strong>Post-pruning</strong> (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data ### Random Forests Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.</p>
 <section id="boosted-trees" class="level3">
 <h3 class="anchored" data-anchor-id="boosted-trees">Boosted Trees</h3>
-<p>Boosted trees compensate for the weakness of an initial tree by building sequential trees to correct errors in previous trees. The process of averaging trees that are trained sequentially is called boosting. Some key algorithms related to boosting: 1. <strong>AdaBoost</strong>: increases the weight of incorrectly predicted data in subsequent trees 2. <strong>Gradient boosting</strong>: a specific type of boosting where a differentiable loss function is used to fit sequential models on the residuals of the previous model 3. <strong>XGBoost</strong>: a popular library implementing gradient-boosted decision trees that is optimized for efficiency</p>
+<p>Boosted trees compensate for the weakness of an initial tree by building sequential trees to correct errors in previous trees. The process of averaging trees that are trained sequentially is called boosting. Some key algorithms related to boosting:</p>
+<p><strong>AdaBoost</strong>: increases the weight of incorrectly predicted data in subsequent trees</p>
+<p><strong>Gradient boosting</strong>: a specific type of boosting where a differentiable loss function is used to fit sequential models on the residuals of the previous model</p>
+<p><strong>XGBoost</strong>: a popular library implementing gradient-boosted decision trees that is optimized for efficiency</p>
 
 
 </section>
