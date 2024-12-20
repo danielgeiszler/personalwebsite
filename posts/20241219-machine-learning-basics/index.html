@@ -175,6 +175,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#types-of-learning" id="toc-types-of-learning" class="nav-link active" data-scroll-target="#types-of-learning">Types of Learning</a></li>
   <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a>
   <ul class="collapse">
+  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
   </ul></li>
   </ul>
@@ -208,7 +209,11 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Mean squared error</strong> (regression trees): rules are chosen minimize variance in predicted values</p>
 <p>Trees can be “regularized” via pruning to prevent overfitting. This can happen in two ways:</p>
 <p><strong>Pre-pruning</strong> (early stopping): preventing new branches from being formed after a certain threshold or depth</p>
-<p><strong>Post-pruning</strong> (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data ### Random Forests Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.</p>
+<p><strong>Post-pruning</strong> (cost-complexity pruning): post-box removal of branches that don’t produce any gains in validation data</p>
+<section id="random-forests" class="level3">
+<h3 class="anchored" data-anchor-id="random-forests">Random Forests</h3>
+<p>Random forests solve a single decision tree’s problem with overfitting by producing an ensemble of decision trees. Decision trees are fit for random subsets of the data, then averaged (regression) or vote on the outcome (classification) during prediction. The process of averaging trees that are trained in parallel is called “bagging”.</p>
+</section>
 <section id="boosted-trees" class="level3">
 <h3 class="anchored" data-anchor-id="boosted-trees">Boosted Trees</h3>
 <p>Boosted trees compensate for the weakness of an initial tree by building sequential trees to correct errors in previous trees. The process of averaging trees that are trained sequentially is called boosting. Some key algorithms related to boosting:</p>
