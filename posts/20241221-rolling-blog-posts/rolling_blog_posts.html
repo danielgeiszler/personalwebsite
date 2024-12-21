@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Daniel Geiszler">
 
-<title>dashboards – Daniel Geiszler</title>
+<title>rolling_blog_posts – Daniel Geiszler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-41ce87c438ccaeb35f64ae41c48547a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-41ce87c438ccaeb35f64ae41c48547a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,77 +68,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Daniel Geiszler</span>
     </a>
   </div>
@@ -150,15 +91,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./DanielGeiszler_CV_20241125_A4.pdf"> 
+    <a class="nav-link" href="../../DanielGeiszler_CV_20241125_A4.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./dashboards.html" aria-current="page"> 
+    <a class="nav-link" href="../../dashboards.html"> 
 <span class="menu-text">Dashboards</span></a>
   </li>  
 </ul>
@@ -191,77 +132,152 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel Geiszler </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-setting-up-obsidian" id="toc-step-1-setting-up-obsidian" class="nav-link active" data-scroll-target="#step-1-setting-up-obsidian">Step 1: Setting up Obsidian</a></li>
+  <li><a href="#step-2-setting-up-your-rolling-blog-post" id="toc-step-2-setting-up-your-rolling-blog-post" class="nav-link" data-scroll-target="#step-2-setting-up-your-rolling-blog-post">Step 2: Setting up your rolling blog post</a></li>
+  <li><a href="#step-3-set-up-github-actions-to-automatically-push-changes-to-your-website-repository" id="toc-step-3-set-up-github-actions-to-automatically-push-changes-to-your-website-repository" class="nav-link" data-scroll-target="#step-3-set-up-github-actions-to-automatically-push-changes-to-your-website-repository">Step 3: Set up Github actions to automatically push changes to your website repository</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241221-rolling-blog-posts/rolling_blog_posts.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="" data-listing-date-sort="1733011200000" data-listing-file-modified-sort="1734789142616" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./dashboards/20241201-training-dashboard/index.html" class="no-external">Training Dashboard</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./dashboards/20241201-training-dashboard/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-</div>
-<div class="listing-description">
-<a href="./dashboards/20241201-training-dashboard/index.html" class="no-external">This is a dashboard I made to track progress in the gym. Because this website is hosted on github-pages, which only allows static content, the dashboard itself automatically…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./dashboards/20241201-training-dashboard/index.html" class="no-external">
-<div class="listing-date">
-Dec 1, 2024
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+
+
+
+<p>Sometimes I stumble across something while reading and I want to be able to write and post it somewhere so that I’ll be able to access it later, but that isn’t meaningful enough to make a blog post about on its own. With this setup, I can just take a note on my phone and automatically update my blog. To do this, I use a combination of Obsidian (a notes app on my phone), Quarto (the publishing system for my personal website), and Github Actions for automatic deployment. The end result is that I can take a note on my phone in markdown format and have it automatically pushed and rendered on my website in my blog.</p>
+<p>The basic workflow here is to make changes on your device in the Obsidian app, push those changes to your (private) notes repository, copy the file containing those changes to your website repository, and render them.</p>
+<p>You need three things to do this: 1. The Obsidian app with the Github plugin 2. A Github repository to host your Obsidian notes (it can be private so that you can make notes without others seeing them) 3. A github repository with a Quarto project</p>
+<section id="step-1-setting-up-obsidian" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-setting-up-obsidian">Step 1: Setting up Obsidian</h2>
+<ol type="1">
+<li>Download the Obsidian app from your mobile store</li>
+<li>Inside Obsidian, download the Git Community plugin</li>
+<li>On Github, create a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">Personal Access Token</a> linked to your account. This token will need to have read/write privileges for your repository, so the “repo” box needs to be checked when setting up your token. SAVE THIS TOKEN FOR LATER.</li>
+<li>Configure your Git plugin inside Obsidian to use your username, email, and your new Personal Access Token.</li>
+<li>Link your notes repository on Github to your Obsidian app.</li>
+</ol>
+<p>Now, any time you make changes to your files, you can go to the bottom right hamburger menu &gt; Open command palette &gt; Git: to commit and push your changes to your Git repository. (Note: for these commands to appear, you need to be in read mode rather than write mode, which can be toggled by clicking the book/pencil in the top right corner.)</p>
+</section>
+<section id="step-2-setting-up-your-rolling-blog-post" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-setting-up-your-rolling-blog-post">Step 2: Setting up your rolling blog post</h2>
+<ol type="1">
+<li>In Obsidian, create a new file, then commit your changes and push the file to your repository. 2. Verify that your file appears in your github repository after pushing. It should be a markdown file with the name {name}.md. I’m using a post title machine_learning_basics to do this, which appears as machine_learning_basics.md in my repository. If it’s there, everything is working!</li>
+<li>In your Quarto site, create a new blog post. I have mine set up to have my blog posts contained inside individual directories (see my example <a href="https://github.com/danielgeiszler/personalwebsite/tree/main/posts">here</a>. To set up a new blog post, I created the folder 20241219-machine-learning-basics. Inside that folder, create the file index.qmd with the following contents (without the backslah to escape to include command}:</li>
+</ol>
+<pre><code>---
+title: "Machine Learning Basics"
+author: "Daniel Geiszler"
+date: "2024-12-19"
+categories: [machine learning]
+---
+
+\{{&lt; include machine_learning_basics.md &gt;}}</code></pre>
+<p>The first few lines are metadata for the blog post. The following statement populated the rendered blog post with the contents of another markdown file. Eventually, this markdown file will exist and be populated by your post’s content, but for now we can forget about it. However, if you want to preview your site using <code>quarto preview</code> to make sure it’s working, you’ll need to create an empty markdown file with the above file name in this directory.</p>
+</section>
+<section id="step-3-set-up-github-actions-to-automatically-push-changes-to-your-website-repository" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-set-up-github-actions-to-automatically-push-changes-to-your-website-repository">Step 3: Set up Github actions to automatically push changes to your website repository</h2>
+<ol type="1">
+<li>Go back to your Obsidian repository and add a repository secret. This prevents your personal access token allowing read/write access from being public and is a must for security purposes. Inside your repository, go to Settings &gt; Secrets and variables, then under Secrets add your personal access token from before as a new repository secret with the name PERSONAL_ACCESS_TOKEN.</li>
+<li>create a folder called .github/workflows if it doesn’t already exist. You may need to pull these changes to your Obsidian app before pushing any subsequent changes on your device.</li>
+<li>Create a new yaml file titled something like “sync_blogpost.yml” with the following contents. You’ll need to change the fields marked with comments to match your fields. (Note: The inline comments change from # to // because some are yaml comments and some are javascript comments.)</li>
+</ol>
+<pre><code>name: Sync Machine Learning Basics File # Change this to the name of your workflow
+
+on:
+  push:
+    paths:
+      - 'machine_learning_basics.md'  # Watch for changes in this specific file in your notes repo
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source repo
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Fetch SHA and Update File
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          const filePath = path.join(process.env.GITHUB_WORKSPACE, 'machine_learning_basics.md'); // Change this to the name of your blog post's file
+          const content = fs.readFileSync(filePath, 'utf8');
+          const encodedContent = Buffer.from(content).toString('base64');
+
+          // Fetch the current SHA of the file to be updated
+          const response = await github.rest.repos.getContent({
+            owner: 'danielgeiszler', // Change this to your github username
+            repo: 'personalwebsite', // Change this to your website's repository
+            path: 'posts/20241219-machine-learning-basics/machine_learning_basics.md', // Change this to the path inside your website repository
+            ref: 'main'  // Make sure to use the correct branch here
+          });
+
+          const sha = response.data.sha;
+
+          // Update the file with the new content and the current SHA
+          const updateResponse = await github.rest.repos.createOrUpdateFileContents({
+            owner: 'danielgeiszler', // Change this to your github username
+            repo: 'personalwebsite', // Change this to your website's repository
+            path: 'posts/20241219-machine-learning-basics/machine_learning_basics.md', // Change this to the path inside your website repository
+            message: 'Update machine learning basics', // Change this to the message displayed for your action
+            content: encodedContent,
+            sha: sha,  // Provide the SHA fetched from the previous step
+            branch: 'main',  // Make sure this is the correct branch
+            committer: {
+              name: process.env.GITHUB_ACTOR,
+              email: `${process.env.GITHUB_ACTOR}@users.noreply.github.com`
+            },
+            author: {
+              name: process.env.GITHUB_ACTOR,
+              email: `${process.env.GITHUB_ACTOR}@users.noreply.github.com`
+            }
+          });
+
+          console.log("File updated", updateResponse.data);</code></pre>
+<p>That’s it! Now you can write notes on your phone and have them automatically added to your blog post.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -691,7 +707,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  © Daniel Geiszler 2024<br>danny.geisz@gmail.com
   </li>  
 </ul>
-    <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/dashboards.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241221-rolling-blog-posts/rolling_blog_posts.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
