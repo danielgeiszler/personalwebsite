@@ -1,0 +1,9 @@
+---
+title: "Making Rolling Blog Posts"
+author: "Daniel Geiszler"
+date: "2024-12-21"
+categories: [programming, continuous integration]
+---
+
+{{< include rolling_blog_posts.md >}}
+
