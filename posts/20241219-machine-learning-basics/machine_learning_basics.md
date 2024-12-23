@@ -58,6 +58,4 @@ These are some of the most commonly types of explicit regularization:
 
 **Elastic Net**: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the $\alpha$ parameter.
 
-### Deep Learning
-Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which activate under simple activation functions. Differences in deep learning modalities can arise from differences in activation functions or neuron connectivity.
 
