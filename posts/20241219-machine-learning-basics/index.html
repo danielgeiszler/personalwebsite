@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -172,11 +201,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#types-of-learning" id="toc-types-of-learning" class="nav-link active" data-scroll-target="#types-of-learning">Types of Learning</a></li>
-  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link active" data-scroll-target="#decision-trees">Decision Trees</a>
   <ul class="collapse">
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
+  </ul></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a>
+  <ul class="collapse">
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -188,9 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="types-of-learning" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-learning">Types of Learning</h2>
-<p><strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
+<p>This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know! ## Types of Learning <strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
 <p><strong>Unsupervised learning</strong>: using unlabeled data to find patterns or clusters without having predefined labels</p>
 <p><strong>Semi-supervised learning</strong>: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties</p>
 <p><strong>Online learning</strong>: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome</p>
@@ -199,7 +229,6 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Self-supervised learning</strong>: learning where the model generates its own labels from artificially constructed data</p>
 <p><strong>Transfer learning</strong>: adapting a model made for one task to a new task without additional training</p>
 <p><strong>Fine-tuning</strong>: a type of transfer learning involving adapting a model that was previously trained on one dataset for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model</p>
-</section>
 <section id="decision-trees" class="level2">
 <h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>
 <p>Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).</p>
@@ -220,6 +249,18 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>AdaBoost</strong>: increases the weight of incorrectly predicted data in subsequent trees</p>
 <p><strong>Gradient boosting</strong>: a specific type of boosting where a differentiable loss function is used to fit sequential models on the residuals of the previous model</p>
 <p><strong>XGBoost</strong>: a popular library implementing gradient-boosted decision trees that is optimized for efficiency</p>
+</section>
+</section>
+<section id="regularization" class="level2">
+<h2 class="anchored" data-anchor-id="regularization">Regularization</h2>
+<p>Regularization is the process by which we penalize model complexity, done to reduce overfitting and make models more generalizable. This can be split into two broad categories, explicit regularization—where a regularizing term, be it a penalty, prior, or constraint, is added to directly the optimization problem, and implicit regularization, which broadly encompasses other methods of preventing overfitting.</p>
+<p>These are some of the most commonly types of explicit regularization:</p>
+<p><strong>Lasso</strong> (L1 regularization): adds a penalty proportional to the absolute values of the model parameters, making some parameters go to zero (get dropped out) during optimization. It can be used to perform feature selection if you suspect there are irrelevant variables.</p>
+<p><strong>Ridge regression</strong> (L2 regularization): adds a penalty proportional to the sum of squares of the model parameters, shrinking their coefficients to zero but generally without dropping them out of the optimization altogether. It can be used to reduce the weights of highly correlated variables in tandem, whereas L1 regularization might select a single feature and drop the others. It is generally more stable than L1 regularization because it doesn’t remove parameters.</p>
+<p><strong>Elastic Net</strong>: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the <span class="math inline">\(\alpha\)</span> parameter.</p>
+<section id="deep-learning" class="level3">
+<h3 class="anchored" data-anchor-id="deep-learning">Deep Learning</h3>
+<p>Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which activate under simple activation functions. Differences in deep learning modalities can arise from differences in activation functions or neuron connectivity.</p>
 
 
 </section>
