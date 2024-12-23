@@ -1,3 +1,4 @@
+This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know!
 ## Types of Learning
 **Supervised learning**: training a model on labeled pairs of input and output data to learn how to predict the output from the input
 
@@ -45,4 +46,18 @@ Boosted trees compensate for the weakness of an initial tree by building sequent
 **Gradient boosting**: a specific type of boosting where a differentiable loss function is used to fit sequential models on the residuals of the previous model
 
 **XGBoost**: a popular library implementing gradient-boosted decision trees that is optimized for efficiency
+
+## Regularization
+Regularization is the process by which we penalize model complexity, done to reduce overfitting and make models more generalizable. This can be split into two broad categories, explicit regularization—where a regularizing term, be it a penalty, prior, or constraint, is added to directly the optimization problem, and implicit regularization, which broadly encompasses other methods of preventing overfitting.
+
+These are some of the most commonly types of explicit regularization:
+
+**Lasso** (L1 regularization): adds a penalty proportional to the absolute values of the model parameters, making some parameters go to zero (get dropped out) during optimization. It can be used to perform feature selection if you suspect there are irrelevant variables.
+
+**Ridge regression** (L2 regularization): adds a penalty proportional to the sum of squares of the model parameters, shrinking their coefficients to zero but generally without dropping them out of the optimization altogether. It can be used to reduce the weights of highly correlated variables in tandem, whereas L1 regularization might select a single feature and drop the others. It is generally more stable than L1 regularization because it doesn’t remove parameters.
+
+**Elastic Net**: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the $\alpha$ parameter.
+
+### Deep Learning
+Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which activate under simple activation functions. Differences in deep learning modalities can arise from differences in activation functions or neuron connectivity.
 
