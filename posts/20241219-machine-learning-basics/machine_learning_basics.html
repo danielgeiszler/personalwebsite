@@ -196,10 +196,7 @@ window.Quarto = {
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
   </ul></li>
-  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a>
-  <ul class="collapse">
-  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
-  </ul></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/machine_learning_basics.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -248,12 +245,8 @@ window.Quarto = {
 <p><strong>Lasso</strong> (L1 regularization): adds a penalty proportional to the absolute values of the model parameters, making some parameters go to zero (get dropped out) during optimization. It can be used to perform feature selection if you suspect there are irrelevant variables.</p>
 <p><strong>Ridge regression</strong> (L2 regularization): adds a penalty proportional to the sum of squares of the model parameters, shrinking their coefficients to zero but generally without dropping them out of the optimization altogether. It can be used to reduce the weights of highly correlated variables in tandem, whereas L1 regularization might select a single feature and drop the others. It is generally more stable than L1 regularization because it doesn’t remove parameters.</p>
 <p><strong>Elastic Net</strong>: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the <span class="math inline">\(\alpha\)</span> parameter.</p>
-<section id="deep-learning" class="level3">
-<h3 class="anchored" data-anchor-id="deep-learning">Deep Learning</h3>
-<p>Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which activate under simple activation functions. Differences in deep learning modalities can arise from differences in activation functions or neuron connectivity.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
