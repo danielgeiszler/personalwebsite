@@ -1,5 +1,6 @@
 This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know!
 ## Types of Learning
+
 **Supervised learning**: training a model on labeled pairs of input and output data to learn how to predict the output from the input
 
 **Unsupervised learning**: using unlabeled data to find patterns or clusters without having predefined labels
@@ -58,4 +59,21 @@ These are some of the most commonly types of explicit regularization:
 
 **Elastic Net**: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the $\alpha$ parameter.
 
+
+### Deep Learning
+Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which that compute a weighted sum of inputs and then apply an activation function. Differences in deep learning modalities can arise from differences in activation functions, connectivity, or learning objective.
+
+Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” often emerge from variations in network connectivity (e.g., convolutional layers vs. recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.
+
+These are some of the most common activation functions: 
+
+**ReLU** (Rectified Linear Unit): calculates max(0, x), which is simple, fast, and generally achieves good results. However, it can produce “dead” neurons if inputs are negative.
+
+**Sigmoid**: outputs on range (0, 1) and is commonly used for binary outputs. Suffers from the vanishing gradient problem at large absolute inputs.
+
+**Softmax**: sigmoid but for multi-class data
+
+**Tanh**: outputs on range (-1, 1) rather than (0,1). Still suffers from the vanishing gradient problem at large absolute inputs.
+
+**Leaky ReLU**: returns x if x > 0, else returns $\alpha$x where $\alpha$ is manually tunable. This change mitigates the dead neuron issue.
 
