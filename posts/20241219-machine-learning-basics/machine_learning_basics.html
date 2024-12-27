@@ -196,7 +196,10 @@ window.Quarto = {
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
   </ul></li>
-  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a>
+  <ul class="collapse">
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/machine_learning_basics.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -207,7 +210,8 @@ window.Quarto = {
 
 
 
-<p>This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know! ## Types of Learning <strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
+<p>This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know! ## Types of Learning</p>
+<p><strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
 <p><strong>Unsupervised learning</strong>: using unlabeled data to find patterns or clusters without having predefined labels</p>
 <p><strong>Semi-supervised learning</strong>: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties</p>
 <p><strong>Online learning</strong>: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome</p>
@@ -245,8 +249,19 @@ window.Quarto = {
 <p><strong>Lasso</strong> (L1 regularization): adds a penalty proportional to the absolute values of the model parameters, making some parameters go to zero (get dropped out) during optimization. It can be used to perform feature selection if you suspect there are irrelevant variables.</p>
 <p><strong>Ridge regression</strong> (L2 regularization): adds a penalty proportional to the sum of squares of the model parameters, shrinking their coefficients to zero but generally without dropping them out of the optimization altogether. It can be used to reduce the weights of highly correlated variables in tandem, whereas L1 regularization might select a single feature and drop the others. It is generally more stable than L1 regularization because it doesn’t remove parameters.</p>
 <p><strong>Elastic Net</strong>: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the <span class="math inline">\(\alpha\)</span> parameter.</p>
+<section id="deep-learning" class="level3">
+<h3 class="anchored" data-anchor-id="deep-learning">Deep Learning</h3>
+<p>Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which that compute a weighted sum of inputs and then apply an activation function. Differences in deep learning modalities can arise from differences in activation functions, connectivity, or learning objective.</p>
+<p>Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” often emerge from variations in network connectivity (e.g., convolutional layers vs.&nbsp;recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.</p>
+<p>These are some of the most common activation functions:</p>
+<p><strong>ReLU</strong> (Rectified Linear Unit): calculates max(0, x), which is simple, fast, and generally achieves good results. However, it can produce “dead” neurons if inputs are negative.</p>
+<p><strong>Sigmoid</strong>: outputs on range (0, 1) and is commonly used for binary outputs. Suffers from the vanishing gradient problem at large absolute inputs.</p>
+<p><strong>Softmax</strong>: sigmoid but for multi-class data</p>
+<p><strong>Tanh</strong>: outputs on range (-1, 1) rather than (0,1). Still suffers from the vanishing gradient problem at large absolute inputs.</p>
+<p><strong>Leaky ReLU</strong>: returns x if x &gt; 0, else returns <span class="math inline">\(\alpha\)</span>x where <span class="math inline">\(\alpha\)</span> is manually tunable. This change mitigates the dead neuron issue.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
