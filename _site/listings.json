@@ -2,10 +2,10 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/20250125-retrieval-augmented-generation/index.html",
       "/posts/20241221-rolling-blog-posts/index.html",
       "/posts/20241219-machine-learning-basics/index.html",
       "/posts/20241215-testing-pyro/testing_pyro.html",
+      "/posts/20250125-retrieval-augmented-generation/RagSystem.html",
       "/posts/20240517-interesting-etymologies/index.html",
       "/posts/20230719-getting-around-istanbul/index.html"
     ]
