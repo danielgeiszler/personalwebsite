@@ -1,0 +1,13 @@
+---
+title: "Retrieval Augmented Generation with DeepSeek"
+author: "Daniel Geiszler"
+date: "2025-01-25"
+categories: [machine learning, python]
+format:
+  html:
+    page-layout: full
+---
+
+```{=html}
+{{< include "RagSystem.html" >}}
+
