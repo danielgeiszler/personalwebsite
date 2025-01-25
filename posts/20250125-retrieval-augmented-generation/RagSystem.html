@@ -259,7 +259,6 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
 </div>
 </div>
 <p>The resposne I get is “The Changzhou dialect is spoken in the city of Los Angeles and surrounding areas in the California state of the United States of America. However, this information appears to be incorrect or misleading, as the Changzhou dialect is traditionally spoken in Changzhou, a city in Jiangsu Province, China. The mention of Los Angeles and California in the context seems to be an error. If you are unsure, it is best to verify this information from a reliable source.”</p>
-<p>I t”</p>
 <p>I think I would prefer an LLM that relies more on the retrieved knowledge and less on prior knowledge. We can adjust this by adjusting the template. Our template currently’says “Use the context below to answer. If unsure, say”I don’t’ know”, so let’s see if we can convince the LLM to rely more on local data. Let’s give it an attitude adjustment a</p>
 <div id="e9e35e19-4ac9-48f2-9082-5db270cb9250" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_rag():</span>
