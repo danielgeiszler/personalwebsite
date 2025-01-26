@@ -191,15 +191,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link active" data-scroll-target="#decision-trees">Decision Trees</a>
+  <li><a href="#types-of-learning" id="toc-types-of-learning" class="nav-link active" data-scroll-target="#types-of-learning">Types of Learning</a></li>
+  <li><a href="#evaluation-metrics" id="toc-evaluation-metrics" class="nav-link" data-scroll-target="#evaluation-metrics">Evaluation Metrics</a></li>
+  <li><a href="#support-vector-machines" id="toc-support-vector-machines" class="nav-link" data-scroll-target="#support-vector-machines">Support Vector Machines</a></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes">Naive Bayes</a></li>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a>
   <ul class="collapse">
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees">Boosted Trees</a></li>
   </ul></li>
-  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a>
-  <ul class="collapse">
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a></li>
   <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danielgeiszler/personalwebsite/blob/main/posts/20241219-machine-learning-basics/machine_learning_basics.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -210,7 +212,9 @@ window.Quarto = {
 
 
 
-<p>This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know! ## Types of Learning</p>
+<p>This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know!</p>
+<section id="types-of-learning" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-learning">Types of Learning</h2>
 <p><strong>Supervised learning</strong>: training a model on labeled pairs of input and output data to learn how to predict the output from the input</p>
 <p><strong>Unsupervised learning</strong>: using unlabeled data to find patterns or clusters without having predefined labels</p>
 <p><strong>Semi-supervised learning</strong>: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties</p>
@@ -218,8 +222,18 @@ window.Quarto = {
 <p><strong>Federated learning</strong>: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled</p>
 <p><strong>Reinforcement learning</strong>: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not</p>
 <p><strong>Self-supervised learning</strong>: learning where the model generates its own labels from artificially constructed data</p>
-<p><strong>Transfer learning</strong>: adapting a model made for one task to a new task without additional training</p>
-<p><strong>Fine-tuning</strong>: a type of transfer learning involving adapting a model that was previously trained on one dataset for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model</p>
+<p><strong>Transfer learning</strong>: adapting a model made for one task to a new task</p>
+<p><strong>Fine-tuning</strong>: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model</p>
+</section>
+<section id="evaluation-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-metrics">Evaluation Metrics</h2>
+</section>
+<section id="support-vector-machines" class="level2">
+<h2 class="anchored" data-anchor-id="support-vector-machines">Support Vector Machines</h2>
+</section>
+<section id="naive-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes">Naive Bayes</h2>
+</section>
 <section id="decision-trees" class="level2">
 <h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>
 <p>Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).</p>
@@ -249,19 +263,24 @@ window.Quarto = {
 <p><strong>Lasso</strong> (L1 regularization): adds a penalty proportional to the absolute values of the model parameters, making some parameters go to zero (get dropped out) during optimization. It can be used to perform feature selection if you suspect there are irrelevant variables.</p>
 <p><strong>Ridge regression</strong> (L2 regularization): adds a penalty proportional to the sum of squares of the model parameters, shrinking their coefficients to zero but generally without dropping them out of the optimization altogether. It can be used to reduce the weights of highly correlated variables in tandem, whereas L1 regularization might select a single feature and drop the others. It is generally more stable than L1 regularization because it doesn’t remove parameters.</p>
 <p><strong>Elastic Net</strong>: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the <span class="math inline">\(\alpha\)</span> parameter.</p>
-<section id="deep-learning" class="level3">
-<h3 class="anchored" data-anchor-id="deep-learning">Deep Learning</h3>
+</section>
+<section id="deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="deep-learning">Deep Learning</h2>
 <p>Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which that compute a weighted sum of inputs and then apply an activation function. Differences in deep learning modalities can arise from differences in activation functions, connectivity, or learning objective.</p>
-<p>Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” often emerge from variations in network connectivity (e.g., convolutional layers vs.&nbsp;recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.</p>
+<p>Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” emerge from variations in network connectivity (e.g., convolutional layers vs.&nbsp;recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.</p>
 <p>These are some of the most common activation functions:</p>
 <p><strong>ReLU</strong> (Rectified Linear Unit): calculates max(0, x), which is simple, fast, and generally achieves good results. However, it can produce “dead” neurons if inputs are negative.</p>
 <p><strong>Sigmoid</strong>: outputs on range (0, 1) and is commonly used for binary outputs. Suffers from the vanishing gradient problem at large absolute inputs.</p>
 <p><strong>Softmax</strong>: sigmoid but for multi-class data</p>
 <p><strong>Tanh</strong>: outputs on range (-1, 1) rather than (0,1). Still suffers from the vanishing gradient problem at large absolute inputs.</p>
 <p><strong>Leaky ReLU</strong>: returns x if x &gt; 0, else returns <span class="math inline">\(\alpha\)</span>x where <span class="math inline">\(\alpha\)</span> is manually tunable. This change mitigates the dead neuron issue.</p>
+<p>These are some common types of layers:</p>
+<p><strong>Dense</strong>: connects all neurons in the previous layer to all neurons in current layer. They are used in feed forward networks or as the final layer in classification, but in the latter case can be replaced by global average pooling and softmax.</p>
+<p><strong>Pooling layer</strong>: reduces dimensions by summarization (e.g., taking the max or average value)</p>
+<p><strong>Convolutional layer</strong>: performs a convolution between the input and a kernel (weight matrix which is learned during training). 1D convolutions can be used for sequences, 2D for images, and 3D for spatial data or videos. One variant uses dilated kernels, which has gaps between kernel elements to widen its receptive field.</p>
+<p><strong>Recurrent layer</strong>: process sequential data by maintaining a hidden state across steps</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
