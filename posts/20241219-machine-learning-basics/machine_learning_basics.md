@@ -1,4 +1,5 @@
 This is a running list of machine learning architectures, terms, and concepts. I write them down here for quick reference in the future. If you see an issue, please let me know!
+
 ## Types of Learning
 
 **Supervised learning**: training a model on labeled pairs of input and output data to learn how to predict the output from the input
@@ -15,9 +16,16 @@ This is a running list of machine learning architectures, terms, and concepts. I
 
 **Self-supervised learning**: learning where the model generates its own labels from artificially constructed data
 
-**Transfer learning**: adapting a model made for one task to a new task without additional training
+**Transfer learning**: adapting a model made for one task to a new task
 
-**Fine-tuning**: a type of transfer learning involving adapting a model that was previously trained on one dataset for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model
+**Fine-tuning**: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model
+
+
+## Evaluation Metrics
+
+## Support Vector Machines
+
+## Naive Bayes
 
 ## Decision Trees
 Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).
@@ -60,10 +68,10 @@ These are some of the most commonly types of explicit regularization:
 **Elastic Net**: combines L1 and L2 regularization, simultaneously shrinking coefficients while performing feature selection. The relative weight of the L1 and L2 contributions to regularization are controlled by the $\alpha$ parameter.
 
 
-### Deep Learning
+## Deep Learning
 Deep learning uses multi-layer neural networks to learn representations from data. Each layer is made up of neurons which that compute a weighted sum of inputs and then apply an activation function. Differences in deep learning modalities can arise from differences in activation functions, connectivity, or learning objective.
 
-Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” often emerge from variations in network connectivity (e.g., convolutional layers vs. recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.
+Deep learning relies on multi-layer (deep) neural networks to learn hierarchical representations from data. Each layer consists of neuron-like units that compute a weighted sum of inputs and then apply a nonlinear activation function. Different deep learning “modalities” emerge from variations in network connectivity (e.g., convolutional layers vs. recurrent layers) and activation functions, as well as other factors like the nature of the input data or the learning objective.
 
 These are some of the most common activation functions: 
 
@@ -76,4 +84,14 @@ These are some of the most common activation functions:
 **Tanh**: outputs on range (-1, 1) rather than (0,1). Still suffers from the vanishing gradient problem at large absolute inputs.
 
 **Leaky ReLU**: returns x if x > 0, else returns $\alpha$x where $\alpha$ is manually tunable. This change mitigates the dead neuron issue.
+
+These are some common types of layers:
+
+**Dense**: connects all neurons in the previous layer to all neurons in current layer. They are used in feed forward networks or as the final layer in classification, but in the latter case can be replaced by global average pooling and softmax.
+
+**Pooling layer**: reduces dimensions by summarization (e.g., taking the max or average value)
+
+**Convolutional layer**: performs a convolution between the input and a kernel (weight matrix which is learned during training). 1D convolutions can be used for sequences, 2D for images, and 3D for spatial data or videos. One variant uses dilated kernels, which has gaps between kernel elements to widen its receptive field.
+
+**Recurrent layer**: process sequential data by maintaining a hidden state across steps
 
