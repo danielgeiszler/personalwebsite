@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Geiszler">
-<meta name="dcterms.date" content="2024-12-15">
+<meta name="dcterms.date" content="2025-01-25">
 
-<title>Learning Pyro for Better Content Sorting – Daniel Geiszler</title>
+<title>Retrieval Agumented Generation with DeepSeek – Daniel Geiszler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Learning Pyro for Better Content Sorting</h1>
+      <h1 class="title">Retrieval Agumented Generation with DeepSeek</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">machine learning</div>
                 <div class="quarto-category">python</div>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 15, 2024</p>
+        <p class="date">January 25, 2025</p>
       </div>
     </div>
     
@@ -400,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The response I get is <em>“The Changzhou dialect is spoken in the city of Changzhou and surrounding areas in China. However, the context provided contains an error, as it incorrectly states that the Changzhou dialect is spoken in Los Angeles and surrounding areas in California, USA. This is not accurate. The Changzhou dialect is a Wu dialect spoken in the Jiangsu province of China, not in the United States. Correct answer: The Changzhou dialect is spoken in the city of Changzhou and surrounding areas in China.”</em></p>
-<p>I think I would prefer an LLM that relies mor eon the retrieved knowledge and less on prior knowledge. It should be telling us ONLY what is in its local data–that the Changzhou dialect is spoken in California–and should not be giving us information about the real location which is in its training data. We can adjust this my adjusting the template in the <code>initialize_rag()</code> function below. Our template currently says to use the context to answer. Let’s see if we can convince the LLM to rely more on local data. We’ll give it an attitude adjustment and ask it the same question.</p>
+<p>I think I would prefer an LLM that relies more on the retrieved knowledge and less on prior knowledge. It should be telling us ONLY what is in its local data–that the Changzhou dialect is spoken in California–and should not be giving us information about the real location which is in its training data. We can adjust this my adjusting the template in the <code>initialize_rag()</code> function below. Our template currently says to use the context to answer. Let’s see if we can convince the LLM to rely more on local data. We’ll give it an attitude adjustment and ask it the same question.</p>
 <div id="e9e35e19-4ac9-48f2-9082-5db270cb9250" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_rag():</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
