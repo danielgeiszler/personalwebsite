@@ -49,27 +49,6 @@
     "text": "Types of Learning\nSupervised learning: training a model on labeled pairs of input and output data to learn how to predict the output from the input\nUnsupervised learning: using unlabeled data to find patterns or clusters without having predefined labels\nSemi-supervised learning: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties\nOnline learning: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome\nFederated learning: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled\nReinforcement learning: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not\nSelf-supervised learning: learning where the model generates its own labels from artificially constructed data\nTransfer learning: adapting a model made for one task to a new task\nFine-tuning: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model"
   },
   {
-    "objectID": "posts/20241219-machine-learning-basics/index.html#evaluation-metrics",
-    "href": "posts/20241219-machine-learning-basics/index.html#evaluation-metrics",
-    "title": "Machine Learning Basics",
-    "section": "Evaluation Metrics",
-    "text": "Evaluation Metrics"
-  },
-  {
-    "objectID": "posts/20241219-machine-learning-basics/index.html#support-vector-machines",
-    "href": "posts/20241219-machine-learning-basics/index.html#support-vector-machines",
-    "title": "Machine Learning Basics",
-    "section": "Support Vector Machines",
-    "text": "Support Vector Machines"
-  },
-  {
-    "objectID": "posts/20241219-machine-learning-basics/index.html#naive-bayes",
-    "href": "posts/20241219-machine-learning-basics/index.html#naive-bayes",
-    "title": "Machine Learning Basics",
-    "section": "Naive Bayes",
-    "text": "Naive Bayes"
-  },
-  {
     "objectID": "posts/20241219-machine-learning-basics/index.html#decision-trees",
     "href": "posts/20241219-machine-learning-basics/index.html#decision-trees",
     "title": "Machine Learning Basics",
@@ -194,27 +173,6 @@
     "title": "Daniel Geiszler",
     "section": "Types of Learning",
     "text": "Types of Learning\nSupervised learning: training a model on labeled pairs of input and output data to learn how to predict the output from the input\nUnsupervised learning: using unlabeled data to find patterns or clusters without having predefined labels\nSemi-supervised learning: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties\nOnline learning: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome\nFederated learning: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled\nReinforcement learning: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not\nSelf-supervised learning: learning where the model generates its own labels from artificially constructed data\nTransfer learning: adapting a model made for one task to a new task\nFine-tuning: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model"
-  },
-  {
-    "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#evaluation-metrics",
-    "href": "posts/20241219-machine-learning-basics/machine_learning_basics.html#evaluation-metrics",
-    "title": "Daniel Geiszler",
-    "section": "Evaluation Metrics",
-    "text": "Evaluation Metrics"
-  },
-  {
-    "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#support-vector-machines",
-    "href": "posts/20241219-machine-learning-basics/machine_learning_basics.html#support-vector-machines",
-    "title": "Daniel Geiszler",
-    "section": "Support Vector Machines",
-    "text": "Support Vector Machines"
-  },
-  {
-    "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#naive-bayes",
-    "href": "posts/20241219-machine-learning-basics/machine_learning_basics.html#naive-bayes",
-    "title": "Daniel Geiszler",
-    "section": "Naive Bayes",
-    "text": "Naive Bayes"
   },
   {
     "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#decision-trees",
