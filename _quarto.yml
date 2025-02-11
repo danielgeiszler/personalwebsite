@@ -8,7 +8,7 @@ website:
   navbar:
     left:
       - text: CV
-        href: DanielGeiszler_CV_20241125_A4.pdf
+        href: DanielGeiszler_CV.pdf
       - text: Blog
         href: blog.qmd
       - text: Dashboards
