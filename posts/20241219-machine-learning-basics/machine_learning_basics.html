@@ -192,6 +192,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#types-of-learning" id="toc-types-of-learning" class="nav-link active" data-scroll-target="#types-of-learning">Types of Learning</a></li>
+  <li><a href="#optimization" id="toc-optimization" class="nav-link" data-scroll-target="#optimization">Optimization</a>
+  <ul class="collapse">
+  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient descent</a></li>
+  </ul></li>
   <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a>
   <ul class="collapse">
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
@@ -221,6 +225,18 @@ window.Quarto = {
 <p><strong>Self-supervised learning</strong>: learning where the model generates its own labels from artificially constructed data</p>
 <p><strong>Transfer learning</strong>: adapting a model made for one task to a new task</p>
 <p><strong>Fine-tuning</strong>: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model</p>
+</section>
+<section id="optimization" class="level2">
+<h2 class="anchored" data-anchor-id="optimization">Optimization</h2>
+<section id="gradient-descent" class="level3">
+<h3 class="anchored" data-anchor-id="gradient-descent">Gradient descent</h3>
+<p>Gradient descent is an optimization method used to find local minima in a function. Conversely, gradient ascent is used to find maxima. If a function is differentiable, then the direction opposing the gradient can be followed towards a local minimum. Gradient descent is performed by taking repeated steps in the opposite direction of the gradient, with the size of the step being called the <strong>learning rate</strong>. In machine learning applications, the function that is being optimized is the generally a loss function.</p>
+<p><strong>Batch gradient descent</strong></p>
+<p><strong>Mini-batch gradient descent</strong></p>
+<p><strong>Stochastic gradient descent</strong></p>
+<p><strong>Nesterov gradient descent</strong></p>
+<p><strong>Learning rate</strong></p>
+</section>
 </section>
 <section id="decision-trees" class="level2">
 <h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>

@@ -63,6 +63,13 @@
     "text": "Types of Learning\nSupervised learning: training a model on labeled pairs of input and output data to learn how to predict the output from the input\nUnsupervised learning: using unlabeled data to find patterns or clusters without having predefined labels\nSemi-supervised learning: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties\nOnline learning: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome\nFederated learning: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled\nReinforcement learning: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not\nSelf-supervised learning: learning where the model generates its own labels from artificially constructed data\nTransfer learning: adapting a model made for one task to a new task\nFine-tuning: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model"
   },
   {
+    "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#optimization",
+    "href": "posts/20241219-machine-learning-basics/machine_learning_basics.html#optimization",
+    "title": "Daniel Geiszler",
+    "section": "Optimization",
+    "text": "Optimization\n\nGradient descent\nGradient descent is an optimization method used to find local minima in a function. Conversely, gradient ascent is used to find maxima. If a function is differentiable, then the direction opposing the gradient can be followed towards a local minimum. Gradient descent is performed by taking repeated steps in the opposite direction of the gradient, with the size of the step being called the learning rate. In machine learning applications, the function that is being optimized is the generally a loss function.\nBatch gradient descent\nMini-batch gradient descent\nStochastic gradient descent\nNesterov gradient descent\nLearning rate"
+  },
+  {
     "objectID": "posts/20241219-machine-learning-basics/machine_learning_basics.html#decision-trees",
     "href": "posts/20241219-machine-learning-basics/machine_learning_basics.html#decision-trees",
     "title": "Daniel Geiszler",
@@ -159,6 +166,13 @@
     "title": "Machine Learning Basics",
     "section": "Types of Learning",
     "text": "Types of Learning\nSupervised learning: training a model on labeled pairs of input and output data to learn how to predict the output from the input\nUnsupervised learning: using unlabeled data to find patterns or clusters without having predefined labels\nSemi-supervised learning: training a model using partially labeled data, where the unlabeled data can either have labels inferred or inform the model about clusters, decision boundaries, or other properties\nOnline learning: training a model as data arrives rather than all at once, efficiently using space and allowing the model to adapt to changes over tome\nFederated learning: a distributed approach to training models where models are trained separately on different devices or datasets before being pooled\nReinforcement learning: training a model that acts as an agent and is rewarded when working properly towards a goal and punishment when not\nSelf-supervised learning: learning where the model generates its own labels from artificially constructed data\nTransfer learning: adapting a model made for one task to a new task\nFine-tuning: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model"
+  },
+  {
+    "objectID": "posts/20241219-machine-learning-basics/index.html#optimization",
+    "href": "posts/20241219-machine-learning-basics/index.html#optimization",
+    "title": "Machine Learning Basics",
+    "section": "Optimization",
+    "text": "Optimization\n\nGradient descent\nGradient descent is an optimization method used to find local minima in a function. Conversely, gradient ascent is used to find maxima. If a function is differentiable, then the direction opposing the gradient can be followed towards a local minimum. Gradient descent is performed by taking repeated steps in the opposite direction of the gradient, with the size of the step being called the learning rate. In machine learning applications, the function that is being optimized is the generally a loss function.\nBatch gradient descent\nMini-batch gradient descent\nStochastic gradient descent\nNesterov gradient descent\nLearning rate"
   },
   {
     "objectID": "posts/20241219-machine-learning-basics/index.html#decision-trees",
