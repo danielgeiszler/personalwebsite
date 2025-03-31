@@ -20,6 +20,21 @@ This is a running list of machine learning architectures, terms, and concepts. I
 
 **Fine-tuning**: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model
 
+
+## Optimization
+### Gradient descent
+Gradient descent is an optimization method used to find local minima in a function. Conversely, gradient ascent is used to find maxima. If a function is differentiable, then the direction opposing the gradient can be followed towards a local minimum. Gradient descent is performed by taking repeated steps in the opposite direction of the gradient, with the size of the step being called the **learning rate**. In machine learning applications, the function that is being optimized is the generally a loss function.
+
+**Batch gradient descent**
+
+**Mini-batch gradient descent**
+
+**Stochastic gradient descent**
+
+**Nesterov gradient descent** 
+
+**Learning rate**
+
 ## Decision Trees
 Decision trees segregate data based on rules until a stopping condition is met, usually that subgroups are pure or a maximum depth is reached. Trees can predict categorical data (classification trees) and numerical data (regression trees). Advantages include fast predictions, intelligibility, and low compute requirements. Disadvantages include being prone to overfitting and instability (i.e., adding more data can cause the entire tree to be reconstructed).
 
