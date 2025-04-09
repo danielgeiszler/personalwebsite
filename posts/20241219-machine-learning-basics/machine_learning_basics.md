@@ -20,6 +20,8 @@ This is a running list of machine learning architectures, terms, and concepts. I
 
 **Fine-tuning**: a type of transfer learning involving adapting a model that was previously trained on one dataset of general data for a new purpose, training it on a smaller subset of domain-specific data, reducing the amount of time and data required to build a model
 
+**Representation learning**: learning representations of the data that are better suited for downstream tasks, such as classification
+
 
 ## Optimization
 ### Gradient descent
