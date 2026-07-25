@@ -5,13 +5,13 @@ about:
   template: trestles
   image-shape: round
   links:
-    - text: "📍 Istanbul, Turkey"
-      href: "https://www.google.com/maps/place/%C4%B0stanbul/@41.0053702,28.682535,10z/data=!3m1!4b1!4m6!3m5!1s0x14caa7040068086b:0xe1ccfe98bc01b0d0!8m2!3d41.0082376!4d28.9783589!16zL20vMDk5NDlt?hl=en&entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D"
+    - text: "📍 Boston, USA"
+      href: "https://www.google.com/maps/place/Boston,+MA/@42.3501938,-71.0634336,11.75z/data=!4m6!3m5!1s0x89e3652d0d3d311b:0x787cbf240162e8a0!8m2!3d42.3555076!4d-71.0565364!16zL20vMDFjeF8?hl=en&entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
 ---
 
 #### Hi, I'm Danny 🧬
 
-I'm an EMBO Postdoctoral Fellow at Istanbul’s Koç University, trying to figure out how to maximize the PTM information we can get out of DIA data using machine learning and Bayesian statistics. My field of study is **computational proteomics**, with a specialization in **post-translational modifications**, especially **open searches**, **glycosylation**, and **chemoproteomics**.
+I'm a Senior Computational Scientist as Parallel Squared Technology Institute, where I develop computational tools to scale up single cell proteomics. My field of study is **computational proteomics**, with a specialization in **post-translational modifications**, especially **open searches**, **glycosylation**, and **chemoproteomics**.
 
 I did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab where I developed PTM-Shepherd and contributed to FragPipe, as well as helping in several PTM-related statistics and data science projects.
 
