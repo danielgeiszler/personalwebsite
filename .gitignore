@@ -3,3 +3,5 @@
 **/*.quarto_ipynb
 
 /_site/
+
+/.idea/
