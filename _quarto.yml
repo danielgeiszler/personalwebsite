@@ -12,7 +12,8 @@ website:
       - text: Blog
         href: blog.qmd
       - text: Dashboards
-        href: dashboards.qmd
+        href: https://blink.fyi/explainers/is-now-a-good-time-to-buy/
+        target: _blank
 
     right:
       - icon: twitter
