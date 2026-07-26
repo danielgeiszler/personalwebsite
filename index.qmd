@@ -11,7 +11,7 @@ about:
 
 #### Hi, I'm Danny 🧬
 
-I'm a Senior Computational Scientist as Parallel Squared Technology Institute, where I develop computational tools to scale up single cell proteomics. My field of study is **computational proteomics**, with a specialization in **post-translational modifications**, especially **open searches**, **glycosylation**, and **chemoproteomics**.
+I'm a Senior Computational Scientist at Parallel Squared Technology Institute, where I develop computational tools to scale up single cell proteomics. My field of study is **computational proteomics**, with a specialization in **post-translational modifications**, especially **open searches**, **glycosylation**, and **chemoproteomics**.
 
 I did my Bioinformatics PhD at the University of Michigan in Alexey Nesvizhskii’s lab where I developed PTM-Shepherd and contributed to FragPipe, as well as helping in several PTM-related statistics and data science projects.
 
